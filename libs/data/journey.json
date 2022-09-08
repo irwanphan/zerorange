@@ -1,0 +1,20 @@
+{
+    "works": [
+        {
+            "id": 1,
+            "title": "Chief Executive",
+            "description": "Create masterplan and lead team in building enterprenuers network and digital startup ecosystem in various cities in Indonesia, mainly in West Kalimantan. Manage multiple teams that deliver platforms and programs to clients, governments, enterprises, and communities.",
+            "companyName": "Turbin",
+            "startDate": "November 2018",
+            "endDate": null
+        },
+        {
+            "id": 2,
+            "title": "Lecturer",
+            "description": "For Social Computing, Data Structure, and Web Development subjects.",
+            "companyName": "Widya Dharma University",
+            "startDate": "Agustus 2014",
+            "endDate": null
+        }
+    ]
+}
