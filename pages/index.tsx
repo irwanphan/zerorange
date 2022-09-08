@@ -3,12 +3,12 @@ import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text } fr
 import Head from 'next/head'
 import Image from 'next/image'
 import PageSection from '@elements/Section'
-import { FiActivity, FiArchive, FiGitPullRequest, FiInstagram, FiLinkedin, FiMail, FiMap, FiPenTool } from 'react-icons/fi'
+import { FiActivity, FiArchive, FiGitPullRequest, FiHeart, FiInstagram, FiLinkedin, FiMail, FiMap, FiPenTool, FiSmile, FiSunrise, FiSunset } from 'react-icons/fi'
 import TextWithIcon from '@elements/TextWithIcon'
 import IconicTitle from '@elements/IconicTitle'
 import BubbleContainer from '@elements/BubbleContainer'
 
-import { studies, works } from '@libs/data/journey.json'
+import { studies, works, founded } from '@libs/data/journey.json'
 
 const Home: NextPage = () => {
   console.log(works)
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
 
         <PageSection>
           <BubbleContainer>
-            <IconicTitle icon={FiGitPullRequest} hoverColor='pink.200'>Hustling Journey</IconicTitle>
+            <IconicTitle icon={FiGitPullRequest} hoverColor='yellow.300'>Hustling Journey</IconicTitle>
             {
               works.map((item) => {
                 return (
@@ -112,22 +112,40 @@ const Home: NextPage = () => {
           </BubbleContainer>
         </PageSection>
 
-        {/* <PageSection>
+        <PageSection>
           <BubbleContainer>
-            <IconicTitle icon={FiGitPullRequest} hoverColor='pink.200'>Happened So Far</IconicTitle>
+            <IconicTitle icon={FiHeart} hoverColor='pink.200'>Founder Journal</IconicTitle>
             {
-              works.map((item) => {
+              founded.map((item) => {
                 return (
                   <Box mb={4} _last={{ mb: 0 }}>
-                    <Text fontSize={20} fontWeight={600}>{item.title}</Text>
-                    <Text fontWeight={600}>{item.companyName}</Text>
+                    <Text fontSize={20} fontWeight={600}
+                      display= 'inline-block'
+                    >{item.companyName}</Text>
+                    <Circle as={item.makeMoney == 'good'    ? FiSunrise : 
+                                item.makeMoney == 'medium'  ? FiSmile :
+                                                              FiSunset }
+                      borderStyle='solid'
+                      borderColor='gray.800'
+                      borderWidth='1px 2px 3px 1px'
+                      display='inline-block'
+                      size={6} p={0.5}
+                      position='relative' top={1} left={2}
+                      bg={item.makeMoney == 'good'    ? { base: 'green.200', md: 'white' } : 
+                          item.makeMoney == 'medium'  ? { base: 'yellow.200', md: 'white' } :
+                                                        { base: 'red.200', md: 'white' } }
+                      transition='.4s ease all'
+                      _groupHover={item.makeMoney == 'good'    ? { md: {bg : 'green.200'} } : 
+                                   item.makeMoney == 'medium'  ? { md: {bg : 'yellow.200'} } :
+                                                                 { md: {bg : 'red.200'} } }
+                    />
                     <Text>{item.description}</Text>
                   </Box>
                 )
               })
             }
           </BubbleContainer>
-        </PageSection> */}
+        </PageSection>
     </div>
   )
 }
