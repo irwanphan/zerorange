@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
-import { Box, Circle, Heading, HStack, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import PageSection from '@elements/Section'
-import { FiGitPullRequest, FiInstagram, FiLinkedin, FiMail, FiMap, FiPenTool } from 'react-icons/fi'
+import { FiActivity, FiArchive, FiGitPullRequest, FiInstagram, FiLinkedin, FiMail, FiMap, FiPenTool } from 'react-icons/fi'
 import TextWithIcon from '@elements/TextWithIcon'
 import IconicTitle from '@elements/IconicTitle'
 import BubbleContainer from '@elements/BubbleContainer'
 
-import { works } from '@libs/data/journey.json'
+import { studies, works } from '@libs/data/journey.json'
 
 const Home: NextPage = () => {
   console.log(works)
@@ -30,6 +30,7 @@ const Home: NextPage = () => {
           </Circle>
           <Box>
             <Heading>Hi, I am Irwan</Heading>
+            <Divider my={2}/>
             <Text>I like to learn new things</Text>
             <Text>I am a self starter. I am good at determining what to do to accomplish a defined goal</Text>
           </Box>
@@ -64,30 +65,45 @@ const Home: NextPage = () => {
         <PageSection>
           <BubbleContainer>
             <IconicTitle icon={FiPenTool} hoverColor='cyan.300'>Studied Here</IconicTitle>
-            <SimpleGrid
-              columns={{ base: 1, md: 2 }}
-              spacing='4'>
-              <Box>
-                <Text fontWeight={600}>Master of Informatics Engineering</Text>
-                <small>finished November 2016, Binus University, Jakarta</small>
-              </Box>
-              <Box>
-                <Text fontWeight={600}>Bachelor of Computer Science</Text>
-                <small>finished September 2011, Widya Dharma University, Pontianak</small>
-              </Box>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
+              {
+                studies.map((item) => {
+                  return (
+                    <Box mb={4} _last={{ mb: 0 }}>
+                      <Text fontSize={20} fontWeight={600}>{item.title}</Text>
+                      <Text>finished {item.finishDate}, {item.universityName}, {item.city}</Text>
+                    </Box>
+                  )
+                })
+              }
             </SimpleGrid>
           </BubbleContainer>
         </PageSection>
 
         <PageSection>
           <BubbleContainer>
-            <IconicTitle icon={FiGitPullRequest} hoverColor='pink.200'>Hustler Mode</IconicTitle>
+            <IconicTitle icon={FiGitPullRequest} hoverColor='pink.200'>Hustling Journey</IconicTitle>
             {
               works.map((item) => {
                 return (
                   <Box mb={4} _last={{ mb: 0 }}>
                     <Text fontSize={20} fontWeight={600}>{item.title}</Text>
-                    <Text fontWeight={600}>{item.companyName}</Text>
+                    <Text fontWeight={600}
+                      display= 'inline-block'
+                    >{item.companyName}</Text>
+                    <Circle as={item.active ? FiActivity : FiArchive} 
+                      borderStyle='solid'
+                      borderColor='gray.800'
+                      borderWidth='1px 2px 3px 1px'
+                      display='inline-block'
+                      size={5} p={0.5}
+                      position='relative' top={1} left={2}
+                      bg={item.active ? { base: 'green.200', md: 'white' } : 
+                                        { base: 'orange.200', md: 'white' } }
+                      transition='.4s ease all'
+                      _groupHover={item.active ?  { md: {bg: 'green.200'} } :
+                                                  { md: {bg: 'orange.200'} } }
+                    />
                     <Text>{item.description}</Text>
                   </Box>
                 )

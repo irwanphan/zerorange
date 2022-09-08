@@ -1,7 +1,24 @@
 {
+    "studies": [
+        {
+            "id": 1,
+            "title": "Master of Informatics Engineering",
+            "universityName": "Binus University",
+            "city": "Jakarta",
+            "finishDate": "November 2016"
+        },
+        {
+            "id": 2,
+            "title": "Bachelor of Computer Science",
+            "universityName": "Widya Dharma University",
+            "city": "Pontianak",
+            "finishDate": "September 2011"
+        }
+    ],
     "works": [
         {
             "id": 1,
+            "active": true,
             "title": "Chief Executive",
             "description": "Create masterplan and lead team in building enterprenuers network and digital startup ecosystem in various cities in Indonesia, mainly in West Kalimantan. Manage multiple teams that deliver platforms and programs to clients, governments, enterprises, and communities.",
             "companyName": "Turbin",
@@ -10,6 +27,7 @@
         },
         {
             "id": 2,
+            "active": true,
             "title": "Lecturer",
             "description": "For Social Computing, Data Structure, and Web Development subjects.",
             "companyName": "Widya Dharma University",
@@ -18,11 +36,57 @@
         },
         {
             "id": 3,
+            "active": true,
             "title": "Business Development",
             "description": "Co-founded and involved in various operatives, engaged prospects and provided them beneficial insight in using SaaS product of SCM, AM, and ERP for clients in Indonesia. Provide IT implementation POV to accellerate development, activation and IT implementation process.",
             "companyName": "CanggihSoftware",
             "startDate": "September 2011",
             "endDate": null
+        },
+        {
+            "id": 4,
+            "active": false,
+            "title": "Contracted Project / Regional Officer",
+            "description": "Developing regional startup ecosystem as a part of Ministry of Communication and Information Technology. Create and maintain synergy in the pentahelix ecosystem through the national program with series of events.",
+            "companyName": "Indonesia Ministry of Communication and Information Technology",
+            "startDate": "June 2021",
+            "endDate": "December 2021"
+        },
+        {
+            "id": 5,
+            "active": false,
+            "title": "Director",
+            "description": "Direct company missions and activities toward impactful IT projects for government bureaus.",
+            "companyName": "Orange Multimedia",
+            "startDate": "March 2014",
+            "endDate": "June 2022"
+        },
+        {
+            "id": 6,
+            "active": false,
+            "title": "Business Development",
+            "description": "Visualize business concept and develop presentation for prospective clients and investors.",
+            "companyName": "IMPUTRA",
+            "startDate": "July 2016",
+            "endDate": "June 2017"
+        },
+        {
+            "id": 7,
+            "active": false,
+            "title": "Art Director",
+            "description": "Create design guidelines and oversee the product development process. Design and support integration of various IT products within the company.",
+            "companyName": "Mydiowork, PTE, LTD",
+            "startDate": "July 2015",
+            "endDate": "June 2016"
+        },
+        {
+            "id": 8,
+            "active": false,
+            "title": "Operational Manager",
+            "description": "Manage distribution chain and IT projects for various companies. Lead IT troubleshooting team that solve IT related problems at clients’ company on the spot efficiently and effectively.",
+            "companyName": "Orange CS",
+            "startDate": "April 2011",
+            "endDate": "July 2015"
         }
     ]
 }
