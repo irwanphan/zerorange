@@ -8,7 +8,10 @@ import TextWithIcon from '@elements/TextWithIcon'
 import IconicTitle from '@elements/IconicTitle'
 import BubbleContainer from '@elements/BubbleContainer'
 
+import { works } from '@libs/data/journey.json'
+
 const Home: NextPage = () => {
+  console.log(works)
   return (
     <div>
       <Head>
@@ -62,7 +65,7 @@ const Home: NextPage = () => {
           <BubbleContainer>
             <IconicTitle icon={FiPenTool} hoverColor='cyan.300'>Studied Here</IconicTitle>
             <SimpleGrid
-              columns={{ base: 2 }}
+              columns={{ base: 1, md: 2 }}
               spacing='4'>
               <Box>
                 <Text fontWeight={600}>Master of Informatics Engineering</Text>
@@ -78,13 +81,37 @@ const Home: NextPage = () => {
 
         <PageSection>
           <BubbleContainer>
-            <IconicTitle icon={FiGitPullRequest} hoverColor='pink.200'>Hustling Journey</IconicTitle>
-            <Box>
-              <Text fontWeight={600}>Chief Executive</Text>
-              <small>do this and that</small>
-            </Box>
+            <IconicTitle icon={FiGitPullRequest} hoverColor='pink.200'>Hustler Mode</IconicTitle>
+            {
+              works.map((item) => {
+                return (
+                  <Box mb={4} _last={{ mb: 0 }}>
+                    <Text fontSize={20} fontWeight={600}>{item.title}</Text>
+                    <Text fontWeight={600}>{item.companyName}</Text>
+                    <Text>{item.description}</Text>
+                  </Box>
+                )
+              })
+            }
           </BubbleContainer>
         </PageSection>
+
+        {/* <PageSection>
+          <BubbleContainer>
+            <IconicTitle icon={FiGitPullRequest} hoverColor='pink.200'>Happened So Far</IconicTitle>
+            {
+              works.map((item) => {
+                return (
+                  <Box mb={4} _last={{ mb: 0 }}>
+                    <Text fontSize={20} fontWeight={600}>{item.title}</Text>
+                    <Text fontWeight={600}>{item.companyName}</Text>
+                    <Text>{item.description}</Text>
+                  </Box>
+                )
+              })
+            }
+          </BubbleContainer>
+        </PageSection> */}
     </div>
   )
 }

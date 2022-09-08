@@ -15,6 +15,15 @@
             "companyName": "Widya Dharma University",
             "startDate": "Agustus 2014",
             "endDate": null
+        },
+        {
+            "id": 3,
+            "title": "Business Development",
+            "description": "Co-founded and involved in various operatives, engaged prospects and provided them beneficial insight in using SaaS product of SCM, AM, and ERP for clients in Indonesia. Provide IT implementation POV to accellerate development, activation and IT implementation process.",
+            "companyName": "CanggihSoftware",
+            "startDate": "September 2011",
+            "endDate": null
         }
     ]
 }
+

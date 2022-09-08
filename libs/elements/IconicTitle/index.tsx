@@ -21,8 +21,13 @@ const IconicTitle = ({icon, hoverColor, children, ...rest}: IconicTitleProps) =>
                     borderWidth='1px 2px 3px 1px'
                     size={8} p={1}
                     bg='white'
+                    position='relative'
+                    top={0}
                     transition='.4s ease all'
-                    _groupHover={{ bg: `${hoverColor}` }}
+                    _groupHover={{ 
+                        bg: `${hoverColor}`,
+                        top: '-1.5'
+                    }}
                 />
                 <Text fontSize={20} fontWeight={700}
                     position='relative' top={-2} letterSpacing={1}>

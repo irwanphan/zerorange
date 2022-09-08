@@ -12,7 +12,11 @@ const BubbleContainer = ({children, ...rest}: BubbleContainerProps) => {
             borderColor='gray.800'
             borderWidth='1px 2px 3px 1px'
             role='group'
+            transition='.3s ease all'
             p={8}
+            _hover={{
+                shadow: 'md'
+            }}
             {...rest}
         >
             {children}

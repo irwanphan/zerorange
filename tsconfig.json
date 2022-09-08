@@ -18,6 +18,7 @@
     "paths": {
       "@elements/*": ["libs/elements/*"],
       "@units/*": ["libs/units/*"],
+      "@data/*": ["libs/data*"],
       "@libs/*": ["libs/*"],
       "@public/*": ["public/*"],
     }

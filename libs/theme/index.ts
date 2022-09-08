@@ -7,15 +7,15 @@ const Link: ComponentStyleConfig = {
         },
         _focus: {
             boxShadow: 'none',
-            color: 'pink.800'
+            color: 'purple.800'
         }
     },
 }
 
 const theme = extendTheme({
     fonts: {
-        heading: 'Open Sans, Roboto, Segoe UI, Arial',
-        body: 'Open Sans, Roboto, Segoe UI, Arial',
+        heading: 'Montserrat, Verdana, Century Gothic, Arial Nova, Open Sans, Segoe UI, Roboto',
+        body: 'Montserrat, Verdana, Century Gothic, Arial Nova, Open Sans, Segoe UI, Roboto',
     },
 
     component: {
