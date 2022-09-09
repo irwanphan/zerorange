@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
-import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text, Tooltip } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import PageSection from '@elements/Section'
-import { FiActivity, FiArchive, FiGitPullRequest, FiHeart, FiInstagram, FiLinkedin, FiMail, FiMap, FiPenTool, FiSmile, FiSunrise, FiSunset } from 'react-icons/fi'
+import { FiActivity, FiArchive, FiGitPullRequest, FiHeart, FiInstagram, FiLinkedin, FiLogOut, FiMail, FiMap, FiPenTool, FiSmile, FiSunrise, FiSunset } from 'react-icons/fi'
 import TextWithIcon from '@elements/TextWithIcon'
 import IconicTitle from '@elements/IconicTitle'
 import BubbleContainer from '@elements/BubbleContainer'
@@ -139,6 +139,38 @@ const Home: NextPage = () => {
                                    item.makeMoney == 'medium'  ? { md: {bg : 'yellow.200'} } :
                                                                  { md: {bg : 'red.200'} } }
                     />
+                    {
+                      !item.active &&
+                      <Tooltip label='business archived'>
+                        <Circle as={FiArchive} 
+                          borderStyle='solid'
+                          borderColor='gray.800'
+                          borderWidth='1px 2px 3px 1px'
+                          display='inline-block'
+                          size={6} p={0.5}
+                          position='relative' top={1} left={2} ml={1}
+                          bg={ { base: 'orange.200', md: 'white' } }
+                          transition='.4s ease all'
+                          _groupHover={ { md: {bg: 'orange.200'} } }
+                        />
+                      </Tooltip>
+                    }
+                    {
+                      item.quit &&
+                      <Tooltip label='quit the business'>
+                        <Circle as={FiLogOut} 
+                          borderStyle='solid'
+                          borderColor='gray.800'
+                          borderWidth='1px 2px 3px 1px'
+                          display='inline-block'
+                          size={6} p={0.5}
+                          position='relative' top={1} left={2} ml={1}
+                          bg={ { base: 'orange.200', md: 'white' } }
+                          transition='.4s ease all'
+                          _groupHover={ { md: {bg: 'orange.200'} } }
+                        />
+                      </Tooltip>
+                    }
                     <Text>{item.description}</Text>
                   </Box>
                 )
