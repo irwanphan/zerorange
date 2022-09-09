@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text, Tooltip } from '@chakra-ui/react'
+import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import PageSection from '@elements/Section'
@@ -7,11 +7,17 @@ import { FiActivity, FiArchive, FiGitPullRequest, FiHeart, FiInstagram, FiLinked
 import TextWithIcon from '@elements/TextWithIcon'
 import IconicTitle from '@elements/IconicTitle'
 import BubbleContainer from '@elements/BubbleContainer'
+import { nanoid } from 'nanoid'
 
-import { studies, works, founded } from '@libs/data/journey.json'
+// import { studies, works, founded } from '@libs/data/journey.json'
+import fs from 'fs/promises'
+import path from "path"
+import { useState } from 'react'
 
-const Home: NextPage = () => {
-  console.log(works)
+const Home: NextPage = ({ collection }: any) => {
+  const [ studies, setStudies ] = useState(collection.studies)
+  const [ works, setWorks ] = useState(collection.works)
+  const [ founded, setFounded ] = useState(collection.founded)
   return (
     <div>
       <Head>
@@ -67,9 +73,9 @@ const Home: NextPage = () => {
             <IconicTitle icon={FiPenTool} hoverColor='cyan.300'>Studied Here</IconicTitle>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
               {
-                studies.map((item) => {
+                studies.map((item:any) => {
                   return (
-                    <Box mb={4} _last={{ mb: 0 }}>
+                    <Box mb={4} _last={{ mb: 0 }} key={nanoid()}>
                       <Text fontSize={20} fontWeight={600}>{item.title}</Text>
                       <Text>finished {item.finishDate}, {item.universityName}, {item.city}</Text>
                     </Box>
@@ -84,9 +90,9 @@ const Home: NextPage = () => {
           <BubbleContainer>
             <IconicTitle icon={FiGitPullRequest} hoverColor='yellow.300'>Hustling Journey</IconicTitle>
             {
-              works.map((item) => {
+              works.map((item:any) => {
                 return (
-                  <Box mb={4} _last={{ mb: 0 }}>
+                  <Box mb={4} _last={{ mb: 0 }} key={nanoid()}>
                     <Text fontSize={20} fontWeight={600}>{item.title}</Text>
                     <Text fontWeight={600}
                       display= 'inline-block'
@@ -116,9 +122,9 @@ const Home: NextPage = () => {
           <BubbleContainer>
             <IconicTitle icon={FiHeart} hoverColor='pink.200'>Founder Journal</IconicTitle>
             {
-              founded.map((item) => {
+              founded.map((item:any) => {
                 return (
-                  <Box mb={4} _last={{ mb: 0 }}>
+                  <Box mb={4} _last={{ mb: 0 }} key={nanoid()}>
                     <Text fontSize={20} fontWeight={600}
                       display= 'inline-block'
                     >{item.companyName}</Text>
@@ -141,35 +147,31 @@ const Home: NextPage = () => {
                     />
                     {
                       !item.active &&
-                      <Tooltip label='business archived'>
-                        <Circle as={FiArchive} 
-                          borderStyle='solid'
-                          borderColor='gray.800'
-                          borderWidth='1px 2px 3px 1px'
-                          display='inline-block'
-                          size={6} p={0.5}
-                          position='relative' top={1} left={2} ml={1}
-                          bg={ { base: 'orange.200', md: 'white' } }
-                          transition='.4s ease all'
-                          _groupHover={ { md: {bg: 'orange.200'} } }
-                        />
-                      </Tooltip>
+                      <Circle as={FiArchive} 
+                        borderStyle='solid'
+                        borderColor='gray.800'
+                        borderWidth='1px 2px 3px 1px'
+                        display='inline-block'
+                        size={6} p={0.5}
+                        position='relative' top={1} left={2} ml={1}
+                        bg={ { base: 'orange.200', md: 'white' } }
+                        transition='.4s ease all'
+                        _groupHover={ { md: {bg: 'orange.200'} } }
+                      />
                     }
                     {
                       item.quit &&
-                      <Tooltip label='quit the business'>
-                        <Circle as={FiLogOut} 
-                          borderStyle='solid'
-                          borderColor='gray.800'
-                          borderWidth='1px 2px 3px 1px'
-                          display='inline-block'
-                          size={6} p={0.5}
-                          position='relative' top={1} left={2} ml={1}
-                          bg={ { base: 'orange.200', md: 'white' } }
-                          transition='.4s ease all'
-                          _groupHover={ { md: {bg: 'orange.200'} } }
-                        />
-                      </Tooltip>
+                      <Circle as={FiLogOut} 
+                        borderStyle='solid'
+                        borderColor='gray.800'
+                        borderWidth='1px 2px 3px 1px'
+                        display='inline-block'
+                        size={6} p={0.5}
+                        position='relative' top={1} left={2} ml={1}
+                        bg={ { base: 'orange.200', md: 'white' } }
+                        transition='.4s ease all'
+                        _groupHover={ { md: {bg: 'orange.200'} } }
+                      />
                     }
                     <Text>{item.description}</Text>
                   </Box>
@@ -180,6 +182,18 @@ const Home: NextPage = () => {
         </PageSection>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), 'libs', 'data', 'journey.json')
+  const jsonData:any = await fs.readFile(filePath)
+  const data = JSON.parse(jsonData)
+  // console.log(data)
+  return {
+    props: {
+      collection: data
+    }
+  }
 }
 
 export default Home
