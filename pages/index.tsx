@@ -104,7 +104,7 @@ const Home: NextPage = ({ collection }: any) => {
                       display='inline-block'
                       size={5} p={0.5}
                       position='relative' top={1} left={2}
-                      bg={item.active ? { base: 'green.200', md: 'white' } : 
+                      bg={item.active ? { base: 'green.200',  md: 'white' } : 
                                         { base: 'orange.200', md: 'white' } }
                       transition='.4s ease all'
                       _groupHover={item.active ?  { md: {bg: 'green.200'} } :
@@ -137,9 +137,9 @@ const Home: NextPage = ({ collection }: any) => {
                       display='inline-block'
                       size={6} p={0.5}
                       position='relative' top={1} left={2}
-                      bg={item.makeMoney == 'good'    ? { base: 'green.200', md: 'white' } : 
+                      bg={item.makeMoney == 'good'    ? { base: 'green.200',  md: 'white' } : 
                           item.makeMoney == 'medium'  ? { base: 'yellow.200', md: 'white' } :
-                                                        { base: 'red.200', md: 'white' } }
+                                                        { base: 'red.200',    md: 'white' } }
                       transition='.4s ease all'
                       _groupHover={item.makeMoney == 'good'    ? { md: {bg : 'green.200'} } : 
                                    item.makeMoney == 'medium'  ? { md: {bg : 'yellow.200'} } :
