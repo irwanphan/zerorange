@@ -15,7 +15,7 @@ const BubbleContainer = ({children, ...rest}: BubbleContainerProps) => {
             transition='.3s ease all'
             p={8}
             _hover={{
-                shadow: 'md'
+                shadow: 'lg'
             }}
             {...rest}
         >

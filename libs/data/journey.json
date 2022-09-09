@@ -21,7 +21,7 @@
             "active": true,
             "title": "Chief Executive",
             "description": "Create masterplan and lead team in building enterprenuers network and digital startup ecosystem in various cities in Indonesia, mainly in West Kalimantan. Manage multiple teams that deliver platforms and programs to clients, governments, enterprises, and communities.",
-            "companyName": "Turbin",
+            "companyName": "TURBIN",
             "startDate": "November 2018",
             "endDate": null
         },
@@ -90,6 +90,67 @@
         }
     ],
     "founded": [
+        {
+            "id": 9,
+            "active": false,
+            "quit": false,
+            "exit": true,
+            "makeMoney": "good",
+            "companyName": "Warunk Unlimited",
+            "description": "In a group of seven people, we started a coffee shop business. We rented an area of around 1000 metres square. The business was great, the coffee shop's visitors averaged around 500 people per day. The coffee shop was sold and we exited after two years. The most important lesson learned here is when we had to fired a co-founder, in a hard way.",
+            "startDate": "September 2019",
+            "endDate": "March 2022"
+        },
+        {
+            "id": 8,
+            "active": true,
+            "quit": false,
+            "makeMoney": "good",
+            "companyName": "TURBIN",
+            "description": "After spent several years in communities and volunteered in many startup-building activities, I decided to start a tech-focused company that also support the local ecosystem to grow. Mostly because I was influenced by several people, that shaped my mindset that I could also take part in building a better ecosystem, of course, with things I am comfortable with, tech and development.",
+            "startDate": "June 2017",
+            "endDate": null
+        },
+        {
+            "id": 7,
+            "active": false,
+            "quit": true,
+            "makeMoney": "bad",
+            "companyName": "Mas Itoe",
+            "description": "In Food and Beverage business, spot is an important aspect that cannot be ruled out. We though we could do it from a low traffic area with good design and marketing, as there are so many online food ordering was around at that moment. Lesson learned: do market validation.",
+            "startDate": "June 2017",
+            "endDate": "January 2018"
+        },
+        {
+            "id": 6,
+            "active": false,
+            "quit": true,
+            "makeMoney": "bad",
+            "companyName": "Ezmozi",
+            "description": "Naming is a very important part of building a business. We founded an ice cream business in the name of Ezmozi, meaning emotional in Indonesia. The team dismissed immediately after our first sales attempt in public, which is partly because of flood and no product were able to be sold. And of course, co-founder's attitude is the deciding factor.",
+            "startDate": "September 2016",
+            "endDate": "December 2016"
+        },
+        {
+            "id": 5,
+            "active": false,
+            "quit": false,
+            "makeMoney": "good",
+            "companyName": "Cheesie Pict",
+            "description": "When I'm at my friend's kwetiau stall. He mumbled that he wanted to do photography, his very pashion. I love photography, too. So on a whim, I just told him to let's just do it. The next two days, I created a logo and printed business cards and gave it to him. In two weeks, we already have more than ten booked events for the next three months. My co-founder, somehow lost contact, went missing. I then dismissed the team and sold my photography equipment sets after finishing several events his disappearance",
+            "startDate": "September 2014",
+            "endDate": "February 2015"
+        },
+        {
+            "id": 4,
+            "active": false,
+            "quit": false,
+            "makeMoney": "medium",
+            "companyName": "Orange Multimedia",
+            "description": "With three of my friends, we founded a company together to build our own tech product. Then we pivoted as a tech agency that support local government.",
+            "startDate": "March 2014",
+            "endDate": "June 2022"
+        },
         {
             "id": 3,
             "active": true,
