@@ -19,14 +19,16 @@ const Home: NextPage = ({ collection }: any) => {
   const [ works, setWorks ] = useState(collection.works)
   const [ founded, setFounded ] = useState(collection.founded)
   return (
-    <div>
+    <Box
+      bgGradient='linear(to-b, cyan.50, blue.600)'
+    >
       <Head>
         <title>Odds are ...</title>
         <meta name="description" content="こんにちわ" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PageSection>
+      <PageSection py={16}>
         <HStack mx={'auto'} w='max-content'>
           <Circle size={40} overflow='hidden' mr={4}
             borderStyle='solid'
@@ -205,7 +207,7 @@ const Home: NextPage = ({ collection }: any) => {
             }
           </BubbleContainer>
         </PageSection>
-    </div>
+    </Box>
   )
 }
 

@@ -11,6 +11,7 @@ const BubbleContainer = ({children, ...rest}: BubbleContainerProps) => {
             borderStyle='solid'
             borderColor='gray.800'
             borderWidth='1px 2px 3px 1px'
+            bg='whiteAlpha.700'
             role='group'
             transition='.3s ease all'
             p={8}
