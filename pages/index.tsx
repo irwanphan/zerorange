@@ -92,7 +92,8 @@ const Home: NextPage = ({ collection }: any) => {
             {
               works.map((item:any) => {
                 return (
-                  <Box mb={4} _last={{ mb: 0 }} key={nanoid()}>
+                  <Box key={nanoid()}
+                    _notLast={{ borderBottom:'1px dashed gray', pb:4, mb:4 }} >
                     <Text fontSize={20} fontWeight={600}>{item.title}</Text>
                     <Text fontWeight={600}
                       display= 'inline-block'
@@ -110,6 +111,9 @@ const Home: NextPage = ({ collection }: any) => {
                       _groupHover={item.active ?  { md: {bg: 'green.200'} } :
                                                   { md: {bg: 'orange.200'} } }
                     />
+                    <Text fontSize={12} fontWeight={600} color='gray.500' mt={0.5} mb={2}>
+                      {item.startDate} {item.endDate ? `- ${item.endDate}` : '- now'}
+                    </Text>
                     <Text>{item.description}</Text>
                   </Box>
                 )
@@ -124,7 +128,8 @@ const Home: NextPage = ({ collection }: any) => {
             {
               founded.map((item:any) => {
                 return (
-                  <Box mb={4} _last={{ mb: 0 }} key={nanoid()}>
+                  <Box key={nanoid()}
+                    _notLast={{ borderBottom:'1px dashed gray', pb:4, mb:4 }} >
                     <Text fontSize={20} fontWeight={600}
                       display= 'inline-block'
                     >{item.companyName}</Text>
