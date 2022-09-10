@@ -1,13 +1,14 @@
 import type { NextPage } from 'next'
-import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Circle, Divider, Fade, Heading, HStack, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import PageSection from '@elements/Section'
-import { FiActivity, FiArchive, FiDollarSign, FiGitPullRequest, FiHeart, FiInstagram, FiLinkedin, FiLogOut, FiMail, FiMap, FiMoreHorizontal, FiPenTool, FiSmile, FiSunrise, FiSunset } from 'react-icons/fi'
+import { FiActivity, FiArchive, FiDollarSign, FiGithub, FiGitPullRequest, FiHeart, FiInstagram, FiLinkedin, FiLogOut, FiMail, FiMap, FiMoreHorizontal, FiPenTool, FiSmile, FiSunrise, FiSunset } from 'react-icons/fi'
 import TextWithIcon from '@elements/TextWithIcon'
 import IconicTitle from '@elements/IconicTitle'
 import BubbleContainer from '@elements/BubbleContainer'
 import { nanoid } from 'nanoid'
+import { InView, useInView } from "react-intersection-observer"
 
 // import { studies, works, founded } from '@libs/data/journey.json'
 import fs from 'fs/promises'
@@ -18,6 +19,10 @@ const Home: NextPage = ({ collection }: any) => {
   const [ studies, setStudies ] = useState(collection.studies)
   const [ works, setWorks ] = useState(collection.works)
   const [ founded, setFounded ] = useState(collection.founded)
+  const { ref, inView } = useInView({
+    threshold: 0
+  })
+
   return (
     <Box
       bgGradient='linear(to-b, cyan.50, blue.600)'
@@ -27,6 +32,17 @@ const Home: NextPage = ({ collection }: any) => {
         <meta name="description" content="こんにちわ" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <InView>
+        {({inView, ref}) =>
+          <Box py={8}>
+            <Box ref={ref}>
+              <Link href='https://github.com/irwanphan'><FiGithub/></Link>
+            </Box>
+            <Box position='fixed' top={0} right={0}>{inView.toString()}</Box>
+          </Box>
+        }
+      </InView >
 
       <PageSection py={16}>
         <HStack mx={'auto'} w='max-content'>
