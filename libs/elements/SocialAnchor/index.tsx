@@ -12,7 +12,14 @@ const SocialAnchor = ({href, tooltip, children, ...rest}: SocialAnchorProps) => 
                 display='block' p={2}
                 fontSize={24}
                 transition='.4s ease all'
-                _hover= {{ boxShadow: '0 1px 0 0 black' }}
+                borderWidth='1px 2px 3px 1px'
+                borderStyle='solid'
+                borderColor='transparent'
+                _hover= {{ 
+                    borderColor: 'gray.800',
+                    shadow: 'lg',
+                    borderRadius: 'lg'
+                }}
                 href={href}>
                 {children}
             </Link>

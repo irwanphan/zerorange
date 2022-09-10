@@ -1,15 +1,12 @@
 import type { NextPage } from 'next'
-import { Box, Circle, Divider, Fade, FlexProps, Heading, HStack, Img, Link, SimpleGrid, Text, Tooltip } from '@chakra-ui/react'
+import { Box, Circle, Divider, Heading, HStack, Img, Link, SimpleGrid, Text } from '@chakra-ui/react'
 import Head from 'next/head'
-import Image from 'next/image'
 import PageSection from '@elements/Section'
-import { FiActivity, FiArchive, FiDollarSign, FiDribbble, FiFeather, FiGithub, FiGitPullRequest, FiHeart, FiInstagram, FiLinkedin, FiLogOut, FiMail, FiMap, FiMoreHorizontal, FiPenTool, FiSmile, FiSunrise, FiSunset } from 'react-icons/fi'
-import TextWithIcon from '@elements/TextWithIcon'
+import { FiActivity, FiArchive, FiDollarSign, FiGitPullRequest, FiHeart, FiLogOut, FiMoreHorizontal, FiPenTool, FiSmile, FiSunrise, FiSunset } from 'react-icons/fi'
 import IconicTitle from '@elements/IconicTitle'
 import BubbleContainer from '@elements/BubbleContainer'
-import SocialAnchor from '@elements/SocialAnchor'
+import SocialAnchorMenu from '@libs/components/SocialAnchorMenu'
 import { nanoid } from 'nanoid'
-import { InView, useInView } from "react-intersection-observer"
 
 // import { studies, works, founded } from '@libs/data/journey.json'
 import fs from 'fs/promises'
@@ -20,9 +17,6 @@ const Home: NextPage = ({ collection }: any) => {
   const [ studies, setStudies ] = useState(collection.studies)
   const [ works, setWorks ] = useState(collection.works)
   const [ founded, setFounded ] = useState(collection.founded)
-  const { ref, inView } = useInView({
-    threshold: 0
-  })
 
   return (
     <Box
@@ -34,30 +28,7 @@ const Home: NextPage = ({ collection }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <InView>
-        {({inView, ref}) =>
-          <Box py={8} w='max-content' mx='auto'>
-            <HStack ref={ref} gap={2}>
-              <SocialAnchor href='mailto:irwanphan@gmail.com' tooltip='email me'>
-                <FiMail/>
-              </SocialAnchor>
-              <SocialAnchor href='https://github.com/irwanphan' tooltip='my repos'>
-                <FiGithub/>
-              </SocialAnchor>
-              <SocialAnchor href='https://linkedin.com/in/irwanphan' tooltip='linked'>
-                <FiLinkedin/>
-              </SocialAnchor>
-              <SocialAnchor href='https://behance.net/irwanphan' tooltip='behance'>
-                <FiFeather/>
-              </SocialAnchor>
-              <SocialAnchor href='https://dribbble.com/irwanphan' tooltip='dribbble'>
-                <FiDribbble/>
-              </SocialAnchor>
-            </HStack>
-            <Box position='fixed' top={0} right={0}>{inView.toString()}</Box>
-          </Box>
-        }
-      </InView>
+      <SocialAnchorMenu/>
 
       <PageSection py={16}>
         <HStack mx={'auto'} w='max-content'>
