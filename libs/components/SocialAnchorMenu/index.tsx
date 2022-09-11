@@ -35,13 +35,13 @@ const SocialAnchorMenu = () => {
                             <SocialAnchor href='mailto:irwanphan@gmail.com' tooltip='email me'>
                                 <FiMail/>
                             </SocialAnchor>
-                            <SocialAnchor href='https://instagram.com/irwanphan' tooltip='my repos'>
+                            <SocialAnchor href='https://instagram.com/irwanphan' tooltip='follow me'>
                                 <FiInstagram/>
                             </SocialAnchor>
                             <SocialAnchor href='https://github.com/irwanphan' tooltip='my repos'>
                                 <FiGithub/>
                             </SocialAnchor>
-                            <SocialAnchor href='https://linkedin.com/in/irwanphan' tooltip='linked'>
+                            <SocialAnchor href='https://linkedin.com/in/irwanphan' tooltip='get connected'>
                                 <FiLinkedin/>
                             </SocialAnchor>
                             <SocialAnchor href='https://behance.net/irwanphan' tooltip='behance'>

@@ -7,7 +7,7 @@ interface SocialAnchorProps extends FlexProps {
 
 const SocialAnchor = ({href, tooltip, children, ...rest}: SocialAnchorProps) => {
     return (
-        <Tooltip label=''>
+        <Tooltip hasArrow label={tooltip} bgColor='gray.800' borderRadius='xl' px={3} py={2}>
             <Link 
                 display='block' p={2}
                 fontSize={24}
