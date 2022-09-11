@@ -20,6 +20,27 @@
             "text": "VueJS",
             "color": null,
             "textColor": null
+        },
+        {
+            "id": 4,
+            "icon": "nuxtjs",
+            "text": "NuxtJS",
+            "color": null,
+            "textColor": null
+        },
+        {
+            "id": 5,
+            "icon": "angular",
+            "text": "Angular",
+            "color": null,
+            "textColor": null
+        },
+        {
+            "id": 6,
+            "icon": "js",
+            "text": "JavaScript",
+            "color": null,
+            "textColor": null
         }
     ]
 }

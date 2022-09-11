@@ -15,7 +15,7 @@ const BlockSkillset = ({skills}:BlockSkillsetType) => {
         <PageSection>
             <BubbleContainer>
                 <IconicTitle icon={FiLayers} hoverColor='cyan.300'>What I'd Do</IconicTitle>
-                <Flex gap={2}>
+                <Flex gap={2} wrap='wrap'>
                     {
                         skills.map((item:any) => (
                             <SkillBadge skill={item} key={nanoid()} />
