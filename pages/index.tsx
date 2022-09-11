@@ -9,6 +9,8 @@ import SocialAnchorMenu from '@libs/components/SocialAnchorMenu'
 import { nanoid } from 'nanoid'
 
 // import { studies, works, founded } from '@libs/data/journey.json'
+import BlockStudies from '@libs/components/BlockStudies'
+
 import fs from 'fs/promises'
 import path from "path"
 import { useState } from 'react'
@@ -47,23 +49,7 @@ const Home: NextPage = ({ collection }: any) => {
         </HStack>
       </PageSection>
 
-      <PageSection>
-        <BubbleContainer>
-          <IconicTitle icon={FiPenTool} hoverColor='cyan.300'>Studied Here</IconicTitle>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
-            {
-              studies.map((item:any) => {
-                return (
-                  <Box mb={4} _last={{ mb: 0 }} key={nanoid()}>
-                    <Text fontSize={20} fontWeight={600}>{item.title}</Text>
-                    <Text>finished {item.finishDate}, {item.universityName}, {item.city}</Text>
-                  </Box>
-                )
-              })
-            }
-          </SimpleGrid>
-        </BubbleContainer>
-      </PageSection>
+      <BlockStudies studies={studies} />
 
       <PageSection>
         <BubbleContainer>
