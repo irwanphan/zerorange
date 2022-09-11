@@ -1,8 +1,23 @@
 {
     "skillset": [
         {
-            "icon": "TbBrandNextjs",
+            "id": 1,
+            "icon": "react",
+            "text": "React",
+            "color": null,
+            "textColor": null
+        },
+        {
+            "id": 2,
+            "icon": "nextjs",
             "text": "NextJS",
+            "color": null,
+            "textColor": null
+        },
+        {
+            "id": 3,
+            "icon": "vuejs",
+            "text": "VueJS",
             "color": null,
             "textColor": null
         }

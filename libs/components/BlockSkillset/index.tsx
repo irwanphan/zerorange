@@ -1,27 +1,26 @@
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 import BubbleContainer from "@elements/BubbleContainer"
 import IconicTitle from "@elements/IconicTitle"
 import PageSection from "@elements/Section"
-import SkillBadge from "@elements/SkillBadge"
-import TextWithIcon from "@elements/TextWithIcon"
+import SkillBadge, { SkillBadgeProps } from "@elements/SkillBadge"
 import { nanoid } from "nanoid"
 import { FiLayers } from "react-icons/fi"
-import { TbBrandNextjs } from "react-icons/tb"
 
-const BlockSkillset = () => {
-    
+type BlockSkillsetType = {
+    skills: SkillBadgeProps[]
+} 
+
+const BlockSkillset = ({skills}:BlockSkillsetType) => {
     return (
         <PageSection>
             <BubbleContainer>
                 <IconicTitle icon={FiLayers} hoverColor='cyan.300'>What I'd Do</IconicTitle>
                 <Flex gap={2}>
-                    <Box px={4} py={2} mb={2} key={nanoid()}
-                        borderRadius='2rem'
-                        borderStyle='solid'
-                        borderColor='gray.800'
-                        borderWidth='1px 2px 3px 1px'>
-                        <TextWithIcon icon={TbBrandNextjs}>NextJS</TextWithIcon>
-                    </Box>
+                    {
+                        skills.map((item:any) => (
+                            <SkillBadge skill={item} key={nanoid()} />
+                        ))
+                    }
                 </Flex>
             </BubbleContainer>
         </PageSection>

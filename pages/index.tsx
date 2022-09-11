@@ -14,10 +14,11 @@ import BlockJourney from '@libs/components/BlockJourney'
 import BlockFounder from '@libs/components/BlockFounder'
 import BlockSkillset from '@libs/components/BlockSkillset'
 
-const Home: NextPage = ({ collection }: any) => {
-  const [ studies, setStudies ] = useState(collection.studies)
-  const [ works, setWorks ] = useState(collection.works)
-  const [ founded, setFounded ] = useState(collection.founded)
+const Home: NextPage = ({ journey, skillset }: any) => {
+  const [ studies, setStudies ] = useState(journey.studies)
+  const [ works, setWorks ] = useState(journey.works)
+  const [ founded, setFounded ] = useState(journey.founded)
+  const [ skills, setSkills ] = useState(skillset.skillset)
 
   return (
     <Box
@@ -34,7 +35,7 @@ const Home: NextPage = ({ collection }: any) => {
 
       <BlockHeader />
 
-      <BlockSkillset />
+      <BlockSkillset skills={skills} />
       <BlockStudies studies={studies} />
       <BlockJourney works={works} />
       <BlockFounder founded={founded} />
@@ -44,17 +45,18 @@ const Home: NextPage = ({ collection }: any) => {
 }
 
 export async function getStaticProps() {
+  // first json data
   const filePathJourney = path.join(process.cwd(), 'libs', 'data', 'journey.json')
   const jsonDataJourney:any = await fs.readFile(filePathJourney)
   const dataJourney = JSON.parse(jsonDataJourney)
-
+  // second json data
   const filePathSkillset = path.join(process.cwd(), 'libs', 'data', 'skillset.json')
   const jsonDataSkillset:any = await fs.readFile(filePathSkillset)
   const dataSkillset = JSON.parse(jsonDataSkillset)
-  console.log(dataSkillset)
   return {
     props: {
-      collection: dataJourney
+      journey: dataJourney,
+      skillset: dataSkillset
     }
   }
 }
