@@ -51,7 +51,7 @@ const SocialAnchorMenu = () => {
                                 <FiDribbble/>
                             </SocialAnchor>
                         </HStack>
-                        <Box position='fixed' top={0} right={0}>{inView.toString()}</Box>
+                        {/* <Box position='fixed' top={0} right={0}>{inView.toString()}</Box> */}
                     </Flex>
                 </Box>
             }
