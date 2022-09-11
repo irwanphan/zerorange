@@ -5,14 +5,14 @@ import PageSection from "@elements/Section"
 import { nanoid } from "nanoid"
 import { FiPenTool } from "react-icons/fi"
 
-export interface BlockStudiesProps {
+interface BlockStudiesProps {
     id: string | number,
     title: string,
     universityName: string,
     city: string,
     finishDate: string
 }
-type BlockStudiesType = {
+export type BlockStudiesType = {
     studies: Array<BlockStudiesProps>
 }
 
