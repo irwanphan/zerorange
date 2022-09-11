@@ -29,6 +29,7 @@ const SocialAnchorMenu = () => {
                         borderWidth='1px 2px 3px 1px'
                         borderStyle='solid'
                         borderColor={!inView ? 'gray.800' : 'transparent'}
+                        boxShadow={!inView ? '2xl' : 'none'}
                         bottom={-4} left={0} right={0}        
                         >
                         <HStack gap={2}>

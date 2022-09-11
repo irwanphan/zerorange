@@ -21,6 +21,7 @@ const Home: NextPage = ({ collection }: any) => {
   return (
     <Box
       bgGradient='linear(to-b, cyan.50, blue.600)'
+      pb={10}
     >
       <Head>
         <title>Odds are ...</title>
