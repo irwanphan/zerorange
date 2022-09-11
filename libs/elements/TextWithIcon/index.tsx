@@ -13,7 +13,7 @@ const TextWithIcon = ({icon, color, textColor, children, ...rest}:TextWithIconPr
     return (
         <Box {...rest}>
             <HStack color={color ?? 'inherit'}>
-                <Box as={icon} />
+                <Box as={icon} fontSize='1.75rem' />
                 <Text textColor={textColor ?? 'inherit'}>
                     {children}
                 </Text>

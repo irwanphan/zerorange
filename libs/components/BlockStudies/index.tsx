@@ -17,7 +17,6 @@ export type BlockStudiesType = {
 }
 
 const BlockStudies = ({studies}:BlockStudiesType) => {
-    console.log(studies)
     return (
         <PageSection>
             <BubbleContainer>

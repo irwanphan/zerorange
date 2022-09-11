@@ -12,6 +12,7 @@ import BlockHeader from '@libs/components/BlockHeader'
 import BlockStudies from '@libs/components/BlockStudies'
 import BlockJourney from '@libs/components/BlockJourney'
 import BlockFounder from '@libs/components/BlockFounder'
+import BlockSkillset from '@libs/components/BlockSkillset'
 
 const Home: NextPage = ({ collection }: any) => {
   const [ studies, setStudies ] = useState(collection.studies)
@@ -33,6 +34,7 @@ const Home: NextPage = ({ collection }: any) => {
 
       <BlockHeader />
 
+      <BlockSkillset />
       <BlockStudies studies={studies} />
       <BlockJourney works={works} />
       <BlockFounder founded={founded} />
@@ -42,13 +44,17 @@ const Home: NextPage = ({ collection }: any) => {
 }
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'libs', 'data', 'journey.json')
-  const jsonData:any = await fs.readFile(filePath)
-  const data = JSON.parse(jsonData)
-  // console.log(data)
+  const filePathJourney = path.join(process.cwd(), 'libs', 'data', 'journey.json')
+  const jsonDataJourney:any = await fs.readFile(filePathJourney)
+  const dataJourney = JSON.parse(jsonDataJourney)
+
+  const filePathSkillset = path.join(process.cwd(), 'libs', 'data', 'skillset.json')
+  const jsonDataSkillset:any = await fs.readFile(filePathSkillset)
+  const dataSkillset = JSON.parse(jsonDataSkillset)
+  console.log(dataSkillset)
   return {
     props: {
-      collection: data
+      collection: dataJourney
     }
   }
 }
