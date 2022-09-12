@@ -17,22 +17,24 @@ const SocialAnchorMenu = () => {
                         position={inView ? 'absolute' : 'relative'}
                     />
                     <Flex  
-                        w='max-content' mx='auto'
+                        w={{ base: 'full', md: 'max-content' }} 
+                        mx='auto'
                         alignItems='center'
+                        justifyContent='center'
                         position={!inView ? 'fixed' : 'relative'}
                         bgColor={!inView ? 'whiteAlpha.900' : 'transparent'}
                         h='6rem' 
                         transition='0.3s ease all'
                         zIndex={2}
-                        px={8}
-                        rounded='2xl'
-                        borderWidth='1px 2px 3px 1px'
+                        px={{ base: 0, md: 8 }}
+                        rounded={{ base: 'none', md: '2xl' }}
+                        borderWidth={{ base: '1px 0 0 0', md: '1px 2px 3px 1px' }}
                         borderStyle='solid'
                         borderColor={!inView ? 'gray.800' : 'transparent'}
                         boxShadow={!inView ? '2xl' : 'none'}
                         bottom={-4} left={0} right={0}        
                         >
-                        <HStack gap={2}>
+                        <HStack gap={{ base: 0, md: 2 }}>
                             <SocialAnchor href='mailto:irwanphan@gmail.com' tooltip='email me'>
                                 <FiMail/>
                             </SocialAnchor>
