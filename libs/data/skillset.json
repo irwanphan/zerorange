@@ -4,28 +4,28 @@
             "id": 1,
             "icon": "react",
             "text": "React",
-            "color": null,
+            "color": "blue.500",
             "textColor": null
         },
         {
             "id": 2,
             "icon": "nextjs",
             "text": "NextJS",
-            "color": null,
+            "color": "blue.500",
             "textColor": null
         },
         {
             "id": 3,
             "icon": "vuejs",
             "text": "VueJS",
-            "color": null,
+            "color": "green.500",
             "textColor": null
         },
         {
             "id": 4,
             "icon": "nuxtjs",
             "text": "NuxtJS",
-            "color": null,
+            "color": "green.500",
             "textColor": null
         },
         {
@@ -39,7 +39,7 @@
             "id": 6,
             "icon": "js",
             "text": "JavaScript",
-            "color": null,
+            "color": "yellow.600",
             "textColor": null
         }
     ]
