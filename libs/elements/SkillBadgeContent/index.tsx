@@ -1,6 +1,6 @@
 import { Box, FlexProps, HStack, Icon, Text } from "@chakra-ui/react"
 import { ReactNode } from "react"
-import { TbBrandReactNative, TbBrandNextjs, TbCircle, TbBrandVue, TbBrandNuxt, TbBrandAngular, TbBrandJavascript, TbBrandSass, TbBrandTailwind } from "react-icons/tb"
+import { TbBrandReactNative, TbBrandNextjs, TbCircle, TbBrandVue, TbBrandNuxt, TbBrandAngular, TbBrandJavascript, TbBrandSass, TbBrandTailwind, TbBrandBootstrap, TbBrandCss3, TbBrandGit, TbFileSpreadsheet, TbChartDots3, TbLayoutGridAdd, TbLayoutBoardSplit, TbLayoutKanban, TbBrandFigma, TbDevices } from "react-icons/tb"
 import { BsLightningChargeFill } from "react-icons/bs"
 
 interface SkillBadgeContentProps extends FlexProps {
@@ -16,16 +16,29 @@ interface IconMatchedProps extends FlexProps {
 
 export const IconMatched = ({icon, iconColor}:IconMatchedProps) => {
     const match:any = {
-        "react"     : <TbBrandReactNative />,
-        "nextjs"    : <TbBrandNextjs />,
-        "vuejs"     : <TbBrandVue />,
-        "nuxtjs"    : <TbBrandNuxt />,
-        "angular"   : <TbBrandAngular />,
-        "js"        : <TbBrandJavascript />,
-        "sass"      : <TbBrandSass />,
-        "chakraui"  : <BsLightningChargeFill />,
-        "tailwind"  : <TbBrandTailwind />,
-        "default"   : <TbCircle />
+        "requirement"   : <TbFileSpreadsheet />,
+        "project"       : <TbChartDots3 />,
+        "laseau"        : <TbLayoutGridAdd />,
+        "modelling"     : <TbLayoutBoardSplit />,
+
+        "react"         : <TbBrandReactNative />,
+        "nextjs"        : <TbBrandNextjs />,
+        "vuejs"         : <TbBrandVue />,
+        "nuxtjs"        : <TbBrandNuxt />,
+        "angular"       : <TbBrandAngular />,
+        "js"            : <TbBrandJavascript />,
+        "sass"          : <TbBrandSass />,
+        "chakraui"      : <BsLightningChargeFill />,
+        "tailwind"      : <TbBrandTailwind />,
+        "bootstrap"     : <TbBrandBootstrap />,
+        "css"           : <TbBrandCss3 />,
+        "git"           : <TbBrandGit />,
+
+        "wireframe"     : <TbLayoutKanban />,
+        "prototype"     : <TbDevices />,
+        "figma"         : <TbBrandFigma />,
+
+        "default"       : <TbCircle />
     }
     return (
         <Box fontSize='1.75rem'

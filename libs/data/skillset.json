@@ -1,5 +1,35 @@
 {
-    "skillset": [
+    "business": [
+        {
+            "id": 1,
+            "icon": "requirement",
+            "text": "Requirement Engineering",
+            "color": "gray.500",
+            "textColor": null
+        },
+        {
+            "id": 2,
+            "icon": "project",
+            "text": "Project Management",
+            "color": "blue.300",
+            "textColor": null
+        },
+        {
+            "id": 3,
+            "icon": "laseau",
+            "text": "Design Thinking",
+            "color": "green.400",
+            "textColor": null
+        },
+        {
+            "id": 4,
+            "icon": "modelling",
+            "text": "Business Modelling",
+            "color": "red.400",
+            "textColor": null
+        }
+    ],
+    "development": [
         {
             "id": 1,
             "icon": "react",
@@ -61,6 +91,50 @@
             "icon": "tailwind",
             "text": "TailwindCSS",
             "color": "cyan.400",
+            "textColor": null
+        },
+        {
+            "id": 10,
+            "icon": "bootstrap",
+            "text": "Bootstrap",
+            "color": "purple.400",
+            "textColor": null
+        },
+        {
+            "id": 11,
+            "icon": "css",
+            "text": "or-just-CSS3",
+            "color": "blue.400",
+            "textColor": null
+        },
+        {
+            "id": 12,
+            "icon": "git",
+            "text": "Git",
+            "color": "orange.400",
+            "textColor": null
+        }
+    ],
+    "designs": [
+        {
+            "id": 1,
+            "icon": "wireframe",
+            "text": "Wireframing",
+            "color": "green.500",
+            "textColor": null
+        },
+        {
+            "id": 2,
+            "icon": "prototype",
+            "text": "Prototyping in LF/HF",
+            "color": "purple.500",
+            "textColor": null
+        },
+        {
+            "id": 3,
+            "icon": "figma",
+            "text": "Using Figma (or XD)",
+            "color": "gray.900",
             "textColor": null
         }
     ]

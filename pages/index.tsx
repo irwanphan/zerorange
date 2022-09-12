@@ -18,7 +18,7 @@ const Home: NextPage = ({ journey, skillset }: any) => {
   const [ studies, setStudies ] = useState(journey.studies)
   const [ works, setWorks ] = useState(journey.works)
   const [ founded, setFounded ] = useState(journey.founded)
-  const [ skills, setSkills ] = useState(skillset.skillset)
+  const [ skills, setSkills ] = useState(skillset)
 
   return (
     <Box
@@ -35,8 +35,8 @@ const Home: NextPage = ({ journey, skillset }: any) => {
 
       <BlockHeader />
 
-      <BlockSkillset skills={skills} />
       <BlockStudies studies={studies} />
+      <BlockSkillset skills={skills} />
       <BlockJourney works={works} />
       <BlockFounder founded={founded} />
       
