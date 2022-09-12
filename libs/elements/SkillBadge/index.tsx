@@ -17,7 +17,7 @@ type SkillBadgeType = {
 const SkillBadge = ({skill}: SkillBadgeType) => {
     return (
         <Flex gap={2}>
-            <Box px={4} py={2} mb={2} key={nanoid()}
+            <Box px={4} py={2} mb={1} key={nanoid()}
                 borderRadius='2rem'
                 borderStyle='solid'
                 borderColor='gray.800'

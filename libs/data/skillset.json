@@ -41,6 +41,27 @@
             "text": "JavaScript",
             "color": "yellow.600",
             "textColor": null
+        },
+        {
+            "id": 7,
+            "icon": "sass",
+            "text": "SASS",
+            "color": "pink.400",
+            "textColor": null
+        },
+        {
+            "id": 8,
+            "icon": "chakraui",
+            "text": "Chakra-UI",
+            "color": "green.400",
+            "textColor": null
+        },
+        {
+            "id": 9,
+            "icon": "tailwind",
+            "text": "TailwindCSS",
+            "color": "cyan.400",
+            "textColor": null
         }
     ]
 }

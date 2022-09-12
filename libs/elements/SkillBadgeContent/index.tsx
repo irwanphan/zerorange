@@ -1,6 +1,7 @@
 import { Box, FlexProps, HStack, Icon, Text } from "@chakra-ui/react"
 import { ReactNode } from "react"
-import { TbBrandReactNative, TbBrandNextjs, TbCircle, TbBrandVue, TbBrandNuxt, TbBrandAngular, TbBrandJavascript } from "react-icons/tb"
+import { TbBrandReactNative, TbBrandNextjs, TbCircle, TbBrandVue, TbBrandNuxt, TbBrandAngular, TbBrandJavascript, TbBrandSass, TbBrandTailwind } from "react-icons/tb"
+import { BsLightningChargeFill } from "react-icons/bs"
 
 interface SkillBadgeContentProps extends FlexProps {
     icon: string
@@ -21,6 +22,9 @@ export const IconMatched = ({icon, iconColor}:IconMatchedProps) => {
         "nuxtjs"    : <TbBrandNuxt />,
         "angular"   : <TbBrandAngular />,
         "js"        : <TbBrandJavascript />,
+        "sass"      : <TbBrandSass />,
+        "chakraui"  : <BsLightningChargeFill />,
+        "tailwind"  : <TbBrandTailwind />,
         "default"   : <TbCircle />
     }
     return (
