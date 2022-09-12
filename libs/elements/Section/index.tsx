@@ -17,7 +17,7 @@ const PageSection = ({bgImageUrl, biColor, children, ...rest}:PageSectionProps) 
             alignContent={'center'}
             position={'relative'} 
             // overflow={'hidden'}
-            px={{ base: 8 }}
+            px={{ base: 4, md: 8 }}
             py={{ base: 8 }}
             {...rest}
             w={'full'}
