@@ -14,7 +14,7 @@ const BlockSkillset = ({skills}:BlockSkillsetType) => {
     return (
         <PageSection>
             <BubbleContainer>
-                <IconicTitle icon={FiLayers} hoverColor='cyan.300'>What I Do</IconicTitle>
+                <IconicTitle icon={FiLayers} hoverColor='green.200'>What I Do</IconicTitle>
                 <Box mb={2}>
                     I love working in a team and solving problems. I am proficient with these methods and tools.
                 </Box>

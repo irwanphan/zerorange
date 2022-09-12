@@ -1,4 +1,4 @@
-import { Box, HStack, Circle, Img, Heading, Divider, Text } from "@chakra-ui/react"
+import { Box, HStack, Circle, Img, Heading, Divider, Text, Tooltip } from "@chakra-ui/react"
 import PageSection from "@elements/Section"
 
 const BlockHeader = () => {
@@ -12,7 +12,7 @@ const BlockHeader = () => {
                     <Img src='/profile.jpg' />
                 </Circle>
                 <Box>
-                    <Heading>Hi, I am Irwan</Heading>
+                    <Heading><Tooltip label="こんにちわ">Hi</Tooltip>, I am Irwan</Heading>
                     <Divider my={2}/>
                     <Text>I like to learn new things</Text>
                     <Text>I am a self starter. I am good at determining what to do to accomplish a defined goal</Text>
