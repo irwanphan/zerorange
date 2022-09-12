@@ -22,7 +22,7 @@ const SkillBadge = ({skill}: SkillBadgeType) => {
                 borderStyle='solid'
                 borderColor='gray.800'
                 borderWidth='1px 2px 3px 1px'>
-                <SkillBadgeContent icon={skill.icon}>
+                <SkillBadgeContent icon={skill.icon} color={skill.color}>
                     {skill.text}
                 </SkillBadgeContent>
             </Box>

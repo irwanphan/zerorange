@@ -10,9 +10,10 @@ interface SkillBadgeContentProps extends FlexProps {
 }
 interface IconMatchedProps extends FlexProps {
     icon: string
+    color?: string
 }
 
-export const IconMatched = ({icon}:IconMatchedProps) => {
+export const IconMatched = ({icon, color}:IconMatchedProps) => {
     const match:any = {
         "react"     : <TbBrandReactNative />,
         "nextjs"    : <TbBrandNextjs />,
@@ -23,7 +24,8 @@ export const IconMatched = ({icon}:IconMatchedProps) => {
         "default"   : <TbCircle />
     }
     return (
-        <Box fontSize='1.75rem' >
+        <Box fontSize='1.75rem' color={color}
+            >
             { match[icon] || match['default'] }
         </Box>
     )
@@ -32,8 +34,8 @@ export const IconMatched = ({icon}:IconMatchedProps) => {
 const SkillBadgeContent = ({icon, color, textColor, children, ...rest}:SkillBadgeContentProps) => {
     return (
         <Box {...rest}>
-            <HStack color={color ?? 'inherit'}>
-                <IconMatched icon={icon} />
+            <HStack >
+                <IconMatched icon={icon} color={color}/>
                 <Text textColor={textColor ?? 'inherit'}>
                     {children}
                 </Text>
