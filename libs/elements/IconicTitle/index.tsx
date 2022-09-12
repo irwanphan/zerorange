@@ -16,14 +16,14 @@ const IconicTitle = ({icon, hoverColor, children, ...rest}: IconicTitleProps) =>
             {...rest}>
             <HStack>
                 <Circle as={icon} 
+                    transition='.4s ease all'
                     borderStyle='solid'
                     borderColor='gray.800'
                     borderWidth='1px 2px 3px 1px'
                     size={8} p={1}
-                    bg='white'
+                    bg={{ base: `${hoverColor}`, md: 'white' }}
                     position='relative'
-                    top={0}
-                    transition='.4s ease all'
+                    top={{ base: '-1.5', md: '0' }}
                     _groupHover={{ 
                         bg: `${hoverColor}`,
                         top: '-1.5'
