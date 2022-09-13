@@ -113,6 +113,13 @@
             "text": "Git",
             "color": "orange.400",
             "textColor": null
+        },
+        {
+            "id": 13,
+            "icon": "firebase",
+            "text": "Firebase",
+            "color": "orange.200",
+            "textColor": null
         }
     ],
     "designs": [

@@ -1,6 +1,6 @@
 import { Box, FlexProps, HStack, Icon, Text } from "@chakra-ui/react"
 import { ReactNode } from "react"
-import { TbBrandReactNative, TbBrandNextjs, TbCircle, TbBrandVue, TbBrandNuxt, TbBrandAngular, TbBrandJavascript, TbBrandSass, TbBrandTailwind, TbBrandBootstrap, TbBrandCss3, TbBrandGit, TbFileSpreadsheet, TbChartDots3, TbLayoutGridAdd, TbLayoutBoardSplit, TbLayoutKanban, TbBrandFigma, TbDevices } from "react-icons/tb"
+import { TbBrandReactNative, TbBrandNextjs, TbCircle, TbBrandVue, TbBrandNuxt, TbBrandAngular, TbBrandJavascript, TbBrandSass, TbBrandTailwind, TbBrandBootstrap, TbBrandCss3, TbBrandGit, TbFileSpreadsheet, TbChartDots3, TbLayoutGridAdd, TbLayoutBoardSplit, TbLayoutKanban, TbBrandFigma, TbDevices, TbBrandFirebase } from "react-icons/tb"
 import { BsLightningChargeFill } from "react-icons/bs"
 
 interface SkillBadgeContentProps extends FlexProps {
@@ -33,6 +33,7 @@ export const IconMatched = ({icon, iconColor}:IconMatchedProps) => {
         "bootstrap"     : <TbBrandBootstrap />,
         "css"           : <TbBrandCss3 />,
         "git"           : <TbBrandGit />,
+        "firebase"      : <TbBrandFirebase />,
 
         "wireframe"     : <TbLayoutKanban />,
         "prototype"     : <TbDevices />,

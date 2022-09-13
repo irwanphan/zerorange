@@ -1,9 +1,7 @@
 import type { NextPage } from 'next'
 import { Box } from '@chakra-ui/react'
-import Head from 'next/head'
 import { useState } from 'react'
 
-// import { studies, works, founded } from '@libs/data/journey.json'
 import fs from 'fs/promises'
 import path from "path"
 
@@ -13,6 +11,7 @@ import BlockStudies from '@libs/components/BlockStudies'
 import BlockJourney from '@libs/components/BlockJourney'
 import BlockFounder from '@libs/components/BlockFounder'
 import BlockSkillset from '@libs/components/BlockSkillset'
+import CustomHeader from '@libs/components/CustomHeader'
 
 const Home: NextPage = ({ journey, skillset }: any) => {
   const [ studies, setStudies ] = useState(journey.studies)
@@ -25,14 +24,9 @@ const Home: NextPage = ({ journey, skillset }: any) => {
       bgGradient='linear(to-b, cyan.50, blue.600)'
       pb={10}
     >
-      <Head>
-        <title>Odds are ...</title>
-        <meta name="description" content="こんにちわ" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <CustomHeader />
 
       <SocialAnchorMenu/>
-
       <BlockHeader />
 
       <BlockStudies studies={studies} />
