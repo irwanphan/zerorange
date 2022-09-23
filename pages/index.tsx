@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { Box } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import fs from 'fs/promises'
 import path from "path"
@@ -13,28 +13,11 @@ import BlockFounder from '@libs/components/BlockFounder'
 import BlockSkillset from '@libs/components/BlockSkillset'
 import CustomHeader from '@libs/components/CustomHeader'
 
-import {db} from '@libs/data/firebase'
-import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
-
 const Home: NextPage = ({ journey, skillset }: any) => {
   const [ studies, setStudies ] = useState(journey.studies)
   const [ works, setWorks ] = useState(journey.works)
   const [ founded, setFounded ] = useState(journey.founded)
   const [ skills, setSkills ] = useState(skillset)
-
-  const [tasks, setTasks] = useState<any>([])
-
-  useEffect(() => {
-    const q = query(collection(db, 'studies'), orderBy('id'))
-    onSnapshot(q, (querySnapshot) => {
-      setTasks(querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        data: doc.data()
-      })))
-    })
-  },[])
-
-  console.log(tasks)
 
   return (
     <Box
