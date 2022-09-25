@@ -1,14 +1,12 @@
-const withPWA = require('next-pwa');
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  // register: true,
+  // scope: '/app',
+  // sw: 'service-worker.js',
+  //...
+})
 
-const settings = {
-  env: {
-  },
-  devIndicators: {
-    autoPrerender: false,
-  },
-  pwa: {
-    dest: 'public',
-  },
-};
-
-module.exports = process.env.NODE_ENV === 'development' ? settings : withPWA(settings);
+module.exports = withPWA({
+  // next.js config
+})
