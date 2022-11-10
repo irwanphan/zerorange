@@ -1,9 +1,9 @@
 import { Box, Flex, HStack } from "@chakra-ui/react"
-import SocialAnchor from "@elements/SocialAnchor"
+import AnchorMenuIcon from "@elements/AnchorMenu"
 import { FiMail, FiGithub, FiLinkedin, FiFeather, FiDribbble, FiInstagram } from "react-icons/fi"
 import { InView, useInView } from "react-intersection-observer"
 
-const SocialAnchorMenu = () => {
+const AnchorMenuNav = () => {
     const { ref, inView } = useInView({
         threshold: 0,
         rootMargin: '8rem'
@@ -35,24 +35,15 @@ const SocialAnchorMenu = () => {
                         bottom={-4} left={0} right={0}        
                         >
                         <HStack gap={{ base: 0, md: 2 }}>
-                            <SocialAnchor href='mailto:irwanphan@gmail.com' tooltip='email me'>
-                                <FiMail/>
-                            </SocialAnchor>
-                            <SocialAnchor href='https://instagram.com/irwanphan' tooltip='follow me'>
-                                <FiInstagram/>
-                            </SocialAnchor>
-                            <SocialAnchor href='https://github.com/irwanphan' tooltip='my repos'>
-                                <FiGithub/>
-                            </SocialAnchor>
-                            <SocialAnchor href='https://linkedin.com/in/irwanphan' tooltip='get connected'>
-                                <FiLinkedin/>
-                            </SocialAnchor>
-                            <SocialAnchor href='https://behance.net/irwanphan' tooltip='behance'>
+                            <AnchorMenuIcon href='/add' tooltip='add new task'>
                                 <FiFeather/>
-                            </SocialAnchor>
-                            <SocialAnchor href='https://dribbble.com/irwanphan' tooltip='dribbble'>
-                                <FiDribbble/>
-                            </SocialAnchor>
+                            </AnchorMenuIcon>
+                            <AnchorMenuIcon href='https://instagram.com/irwanphan' tooltip='follow me'>
+                                <FiInstagram/>
+                            </AnchorMenuIcon>
+                            <AnchorMenuIcon href='https://github.com/irwanphan' tooltip='my repos'>
+                                <FiGithub/>
+                            </AnchorMenuIcon>
                         </HStack>
                         {/* <Box position='fixed' top={0} right={0}>{inView.toString()}</Box> */}
                     </Flex>
@@ -62,4 +53,4 @@ const SocialAnchorMenu = () => {
     )
 }
 
-export default SocialAnchorMenu
+export default AnchorMenuNav

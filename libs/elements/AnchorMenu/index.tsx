@@ -1,11 +1,12 @@
 import { FlexProps, Link, Tooltip } from "@chakra-ui/react"
 
-interface SocialAnchorProps extends FlexProps {
+interface AnchorMenuProps extends FlexProps {
     href: string
     tooltip: string
 }
 
-const SocialAnchor = ({href, tooltip, children, ...rest}: SocialAnchorProps) => {
+const AnchorMenu
+ = ({href, tooltip, children, ...rest}: AnchorMenuProps) => {
     return (
         <Tooltip hasArrow label={tooltip} bgColor='gray.800' borderRadius='xl' px={3} py={2}>
             <Link 
@@ -27,4 +28,4 @@ const SocialAnchor = ({href, tooltip, children, ...rest}: SocialAnchorProps) => 
     )
 }
 
-export default SocialAnchor
+export default AnchorMenu

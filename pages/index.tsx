@@ -1,56 +1,67 @@
 import type { NextPage } from 'next'
 import { Box } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import fs from 'fs/promises'
 import path from "path"
 
-import SocialAnchorMenu from '@libs/components/SocialAnchorMenu'
 import BlockHeader from '@libs/components/BlockHeader'
 import BlockStudies from '@libs/components/BlockStudies'
 import BlockJourney from '@libs/components/BlockJourney'
 import BlockFounder from '@libs/components/BlockFounder'
 import BlockSkillset from '@libs/components/BlockSkillset'
 import CustomHeader from '@libs/components/CustomHeader'
+import AnchorMenuNav from '@libs/components/AnchorMenuNav'
 
-const Home: NextPage = ({ journey, skillset }: any) => {
-  const [ studies, setStudies ] = useState(journey.studies)
-  const [ works, setWorks ] = useState(journey.works)
-  const [ founded, setFounded ] = useState(journey.founded)
-  const [ skills, setSkills ] = useState(skillset)
+// import { initializeApp } from "firebase/app"
+// import { getDatabase, ref, onValue, goOffline } from "firebase/database"
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyArY83dqer56hJVOYpHzEeEuZvxdNm-X5c",
+//   authDomain: "todoistica.firebaseapp.com",
+//   databaseURL: "https://todoistica.firebaseio.com",
+//   projectId: "todoistica",
+//   storageBucket: "todoistica.appspot.com",
+//   messagingSenderId: "91188526003",
+//   appId: "1:91188526003:web:6153cd55dad31afbac29c6",
+//   measurementId: "G-VR8590R1R2"
+// }
+// const app = initializeApp(firebaseConfig)
+// const database = getDatabase(app);
+
+// Import the generated Prisma client
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+const Home: NextPage = () => {
+
+  const [ data, setData ] = useState()
+  console.log(data)
 
   return (
     <Box
-      bgGradient='linear(to-b, cyan.50, blue.600)'
+      // bgGradient='linear(to-b, cyan.50, blue.600)'
+      bgColor='blue.50'
       pb={10}
     >
       <CustomHeader />
 
-      <SocialAnchorMenu/>
-      <BlockHeader />
+      <AnchorMenuNav/>
+      {/* <BlockHeader /> */}
 
-      <BlockStudies studies={studies} />
-      <BlockSkillset skills={skills} />
-      <BlockJourney works={works} />
-      <BlockFounder founded={founded} />
+      <BlockStudies />
+      {/* <BlockSkillset skills={skills} /> */}
+      {/* <BlockJourney works={works} /> */}
+      {/* <BlockFounder founded={founded} /> */}
       
     </Box>
   )
 }
 
 export async function getStaticProps() {
-  // first json data
-  const filePathJourney = path.join(process.cwd(), 'libs', 'data', 'journey.json')
-  const jsonDataJourney:any = await fs.readFile(filePathJourney)
-  const dataJourney = JSON.parse(jsonDataJourney)
-  // second json data
-  const filePathSkillset = path.join(process.cwd(), 'libs', 'data', 'skillset.json')
-  const jsonDataSkillset:any = await fs.readFile(filePathSkillset)
-  const dataSkillset = JSON.parse(jsonDataSkillset)
   return {
     props: {
-      journey: dataJourney,
-      skillset: dataSkillset
+
     }
   }
 }
