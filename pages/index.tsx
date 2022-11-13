@@ -1,12 +1,12 @@
 import type { NextPage } from 'next'
-import { Box } from '@chakra-ui/react'
+import { Box, FlexProps } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 
 import fs from 'fs/promises'
 import path from "path"
 
 import BlockHeader from '@libs/components/BlockHeader'
-import BlockStudies from '@libs/components/BlockStudies'
+import BlockStudies, { TaskTypes } from '@libs/components/BlockStudies'
 import BlockJourney from '@libs/components/BlockJourney'
 import BlockFounder from '@libs/components/BlockFounder'
 import BlockSkillset from '@libs/components/BlockSkillset'
@@ -33,10 +33,11 @@ import AnchorMenuNav from '@libs/components/AnchorMenuNav'
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-const Home: NextPage = () => {
+const Home:NextPage = ( {tasks} : any ) => {
 
-  const [ data, setData ] = useState()
-  console.log(data)
+  // const [ data, setData ] = useState()
+
+  console.log(tasks)
 
   return (
     <Box
@@ -49,7 +50,7 @@ const Home: NextPage = () => {
       <AnchorMenuNav/>
       {/* <BlockHeader /> */}
 
-      <BlockStudies />
+      <BlockStudies tasks={tasks} />
       {/* <BlockSkillset skills={skills} /> */}
       {/* <BlockJourney works={works} /> */}
       {/* <BlockFounder founded={founded} /> */}
@@ -59,9 +60,10 @@ const Home: NextPage = () => {
 }
 
 export async function getStaticProps() {
+  const tasks = await prisma.task.findMany()
   return {
     props: {
-
+      tasks: JSON.parse(JSON.stringify(tasks))
     }
   }
 }

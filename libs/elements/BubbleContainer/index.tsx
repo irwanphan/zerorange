@@ -7,7 +7,7 @@ interface BubbleContainerProps extends FlexProps {
 const BubbleContainer = ({children, ...rest}: BubbleContainerProps) => {
     return (
         <Box
-            borderRadius='2rem'
+            borderRadius='1rem'
             borderStyle='solid'
             borderColor='gray.800'
             borderWidth='1px 2px 3px 1px'

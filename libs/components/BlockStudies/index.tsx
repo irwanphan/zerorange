@@ -1,28 +1,30 @@
-import { Box, SimpleGrid, Text } from "@chakra-ui/react"
+import { Box, FlexProps, SimpleGrid, Text } from "@chakra-ui/react"
 import BubbleContainer from "@elements/BubbleContainer"
 import IconicTitle from "@elements/IconicTitle"
 import PageSection from "@elements/Section"
 import { nanoid } from "nanoid"
 import { FiTrello } from "react-icons/fi"
 
-interface BlockStudiesProps {
-    id: string | number,
-    title: string,
-    universityName: string,
-    city: string,
-    finishDate: string
+interface TaskProps extends FlexProps {
+    id          : string
+    image?      : string
+    title       : string
+    description : string
+    price       : number
+    createdAt   : Date
+    updatedAt   : Date
 }
-export type BlockStudiesType = {
-    studies: Array<BlockStudiesProps>
+export type TaskTypes = {
+    tasks       : TaskProps[]
 }
 
-const BlockStudies = () => {
+const BlockStudies = ( {tasks}:TaskTypes ) => {
     return (
         <PageSection>
             <BubbleContainer>
                 <IconicTitle icon={FiTrello} hoverColor='blue.200'>Task List</IconicTitle>
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
-                    asdf
+                    {tasks[0].title}
                 </SimpleGrid>
             </BubbleContainer>
       </PageSection>
