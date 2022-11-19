@@ -7,7 +7,9 @@ const CreateTask = () => {
     return (
         <MainLayout>
             <PageSection>
-                <BubbleContainer>
+                <BubbleContainer
+                    title="Create New Task"
+                >
                     asdf
                 </BubbleContainer>
             </PageSection>

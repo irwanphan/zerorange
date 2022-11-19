@@ -1,9 +1,9 @@
 import { HStack, Circle, Text, FlexProps, Box } from "@chakra-ui/react"
 import { IconType } from "react-icons"
-import { FiPenTool } from "react-icons/fi"
+import { FiBookmark } from "react-icons/fi"
 
 interface IconicTitleProps extends FlexProps {
-    icon: IconType
+    icon?: IconType | undefined
     hoverColor: string 
 }
 
@@ -15,7 +15,8 @@ const IconicTitle = ({icon, hoverColor, children, ...rest}: IconicTitleProps) =>
             role='group'
             {...rest}>
             <HStack>
-                <Circle as={icon} 
+                <Circle
+                    as={icon ?? FiBookmark} 
                     transition='.4s ease all'
                     borderStyle='solid'
                     borderColor='gray.800'
@@ -29,8 +30,11 @@ const IconicTitle = ({icon, hoverColor, children, ...rest}: IconicTitleProps) =>
                         top: '-1.5'
                     }}
                 />
-                <Text fontSize={20} fontWeight={700}
-                    position='relative' top={-2} letterSpacing={1}>
+                <Text 
+                    fontSize={20} fontWeight={700}
+                    position='relative' 
+                    top={-2} 
+                    letterSpacing={1}>
                     {children}
                 </Text>
             </HStack>
