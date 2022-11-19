@@ -19,6 +19,7 @@
       "@elements/*": ["libs/elements/*"],
       "@units/*": ["libs/units/*"],
       "@data/*": ["libs/data*"],
+      "@templates/*": ["libs/templates*"],
       "@libs/*": ["libs/*"],
       "@public/*": ["public/*"],
     }

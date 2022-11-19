@@ -2,16 +2,10 @@ import type { NextPage } from 'next'
 import { Box, FlexProps } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 
-import fs from 'fs/promises'
-import path from "path"
-
-import BlockHeader from '@libs/components/BlockHeader'
-import BlockStudies, { TaskTypes } from '@libs/components/BlockStudies'
+import BlockTasks, { TaskTypes } from '@libs/components/BlockTasks'
 import BlockJourney from '@libs/components/BlockJourney'
 import BlockFounder from '@libs/components/BlockFounder'
 import BlockSkillset from '@libs/components/BlockSkillset'
-import CustomHeader from '@libs/components/CustomHeader'
-import AnchorMenuNav from '@libs/components/AnchorMenuNav'
 
 // import { initializeApp } from "firebase/app"
 // import { getDatabase, ref, onValue, goOffline } from "firebase/database"
@@ -31,6 +25,7 @@ import AnchorMenuNav from '@libs/components/AnchorMenuNav'
 
 // Import the generated Prisma client
 import { PrismaClient } from '@prisma/client'
+import MainLayout from '@libs/layouts/MainLayout'
 const prisma = new PrismaClient()
 
 const Home:NextPage = ( {tasks} : any ) => {
@@ -40,22 +35,14 @@ const Home:NextPage = ( {tasks} : any ) => {
   console.log(tasks)
 
   return (
-    <Box
-      // bgGradient='linear(to-b, cyan.50, blue.600)'
-      bgColor='blue.50'
-      pb={10}
-    >
-      <CustomHeader />
+    <MainLayout>
 
-      <AnchorMenuNav/>
-      {/* <BlockHeader /> */}
-
-      <BlockStudies tasks={tasks} />
+      <BlockTasks tasks={tasks} />
       {/* <BlockSkillset skills={skills} /> */}
       {/* <BlockJourney works={works} /> */}
       {/* <BlockFounder founded={founded} /> */}
       
-    </Box>
+    </MainLayout>
   )
 }
 

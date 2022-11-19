@@ -3,12 +3,12 @@ import Head from "next/head"
 const CustomHeader = () => {
     return (
         <Head>
-            <title>Irwan Phan</title>
-            <meta name="application-name" content="Irwan Phan" />
+            <title>000</title>
+            <meta name="application-name" content="Jarak Nol" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-            <meta name="apple-mobile-web-app-title" content="Irwan Phan" />
-            <meta name="description" content="Hi, I am Irwan, this is a personal profile page" />
+            <meta name="apple-mobile-web-app-title" content="Jarak Nol" />
+            <meta name="description" content="Seperti ga ada jarak" />
             <meta name="format-detection" content="telephone=no" />
             <meta name="mobile-web-app-capable" content="yes" />
             <meta name="msapplication-config" content="/icons/browserconfig.xml" />

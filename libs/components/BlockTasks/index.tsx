@@ -4,13 +4,14 @@ import IconicTitle from "@elements/IconicTitle"
 import PageSection from "@elements/Section"
 import { nanoid } from "nanoid"
 import { FiTrello } from "react-icons/fi"
+import axios from "axios"
 
-interface TaskProps extends FlexProps {
+export interface TaskProps extends FlexProps {
     id          : string
     image?      : string
     title       : string
     description : string
-    price       : number
+    price?      : number
     createdAt   : Date
     updatedAt   : Date
 }
@@ -18,7 +19,10 @@ export type TaskTypes = {
     tasks       : TaskProps[]
 }
 
-const BlockStudies = ( {tasks}:TaskTypes ) => {
+const BlockTasks = ( {tasks}:TaskTypes ) => {
+
+    const addTask = (data:TaskProps) => axios.post('/api/tasks', data);
+
     return (
         <PageSection>
             <BubbleContainer>
@@ -31,4 +35,4 @@ const BlockStudies = ( {tasks}:TaskTypes ) => {
     )
 }
 
-export default BlockStudies
+export default BlockTasks
