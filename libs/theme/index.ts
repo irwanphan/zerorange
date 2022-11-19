@@ -6,10 +6,53 @@ const Link: ComponentStyleConfig = {
             textDecoration: 'none'
         },
         _focus: {
+            textDecoration: 'none',
             boxShadow: 'none',
             color: 'purple.800'
         }
     },
+}
+const Input: ComponentStyleConfig = {
+    defaultProps: {
+        colorScheme: 'yellow'
+    },
+    baseStyle: {
+        bgColor: 'whiteAlpha.900'
+    },
+    variants: {
+        outline: {
+            field: {
+                _focusVisible: {
+                    borderColor: 'yellow.500',
+                    boxShadow: '0 0 0 1px yellow.500'
+                }
+            }
+        }
+    }
+}
+const Divider: ComponentStyleConfig = {
+    baseStyle: {
+        my: '2'
+    }
+}
+const Checkbox: ComponentStyleConfig = {
+    baseStyle: {
+        control: {
+            borderColor: 'gray.500',
+            borderRadius: '4',
+            bg: 'whiteAlpha.900'
+        }
+    },
+    defaultProps: {
+        colorScheme: 'yellow'
+    }
+}
+const FormLabel: ComponentStyleConfig = {
+    baseStyle: {
+        mx: '0',
+        my: '0',
+        lineHeight: 8 // experimental, check later
+    }
 }
 
 const theme = extendTheme({
@@ -18,8 +61,12 @@ const theme = extendTheme({
         body: 'Montserrat, Verdana, Century Gothic, Arial Nova, Open Sans, Segoe UI, Roboto',
     },
 
-    component: {
-        Link
+    components: {
+        Link,
+        Divider,
+        Checkbox,
+        Input,
+        FormLabel
     },
 
     breakpoints: {
