@@ -13,6 +13,7 @@ const FormInput = ({label, type, children, ...rest}:FormInputProps) => {
                 display='inline-block'
                 fontSize={14}
                 px={2}
+                textTransform='capitalize'
             >
                 {label}
             </FormLabel>
@@ -27,10 +28,13 @@ const FormInput = ({label, type, children, ...rest}:FormInputProps) => {
                 background='whiteAlpha.900'
                 transition='.3s ease all'
                 bgGradient='linear(to-r, whiteAlpha.900 70%, yellow.300)'
-                bgSize='200%'
+                bgSize='128%'
+                shadow='md'
+                px={2}
                 _hover={{
                     borderColor:'gray.900',
-                    bgSize:'100%'
+                    bgSize:'100%',
+                    shadow:'lg'
                 }}
                 _focus={{
                     borderColor:'gray.900',

@@ -11,11 +11,14 @@ datasource db {
 }
 
 model Task {
-  id          String   @id @default(cuid())
+  id          String      @id @default(cuid())
   image       String?
   title       String
   description String
-  price       Float
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  price       Float       @default(0) 
+  assignedTo  String?
+  ccTo        String[]
+  dueAt       DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 }

@@ -1,6 +1,6 @@
 import { Box, Flex, HStack } from "@chakra-ui/react"
 import AnchorMenuIcon from "@elements/AnchorMenu"
-import { FiMail, FiGithub, FiLinkedin, FiFeather, FiDribbble, FiInstagram } from "react-icons/fi"
+import { FiMail, FiGithub, FiLinkedin, FiFeather, FiDribbble, FiInstagram, FiPenTool } from "react-icons/fi"
 import { InView, useInView } from "react-intersection-observer"
 
 const AnchorMenuNav = () => {
@@ -36,7 +36,7 @@ const AnchorMenuNav = () => {
                         >
                         <HStack gap={{ base: 0, md: 2 }}>
                             <AnchorMenuIcon href='/tasks/create' tooltip='add new task'>
-                                <FiFeather/>
+                                <FiPenTool/>
                             </AnchorMenuIcon>
                             <AnchorMenuIcon href='https://instagram.com/irwanphan' tooltip='follow me'>
                                 <FiInstagram/>
