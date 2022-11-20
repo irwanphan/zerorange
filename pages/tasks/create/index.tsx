@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormLabel, Input } from "@chakra-ui/react"
+import { Box, Checkbox, FormLabel, Input, Textarea } from "@chakra-ui/react"
 import BubbleContainer from "@elements/BubbleContainer"
 import FormInput from "@elements/FornInput"
 import PageSection from "@elements/Section"
@@ -15,7 +15,7 @@ const CreateTask = () => {
                 >
                     <form>
                         <FormInput label="title" />
-                        
+                        <FormInput type="textarea" label="description" />
                     </form>
                 </BubbleContainer>
             </PageSection>

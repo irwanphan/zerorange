@@ -2,6 +2,7 @@ import { ComponentStyleConfig, extendTheme } from "@chakra-ui/react";
 
 const Link: ComponentStyleConfig = {
     baseStyle: {
+        borderColor:'gray.900',
         _hover: {
             textDecoration: 'none'
         },
@@ -17,7 +18,31 @@ const Input: ComponentStyleConfig = {
         colorScheme: 'yellow'
     },
     baseStyle: {
+        borderColor: 'gray.900',
         bgColor: 'whiteAlpha.900'
+    },
+    variants: {
+        outline: {
+            field: {
+                _focusVisible: {
+                    borderColor: 'yellow.500',
+                    boxShadow: '0 0 0 1px yellow.500'
+                }
+            }
+        }
+    }
+}
+const TextArea: ComponentStyleConfig = {
+    defaultProps: {
+        colorScheme: 'yellow'
+    },
+    baseStyle: {
+        borderColor: 'gray.900',
+        bgColor: 'whiteAlpha.900',
+        _focusVisible: {
+            borderColor: 'yellow.500',
+            boxShadow: '0 0 0 1px yellow.500'
+        }
     },
     variants: {
         outline: {
@@ -38,7 +63,7 @@ const Divider: ComponentStyleConfig = {
 const Checkbox: ComponentStyleConfig = {
     baseStyle: {
         control: {
-            borderColor: 'gray.500',
+            // borderColor: 'gray.500',
             borderRadius: '4',
             bg: 'whiteAlpha.900'
         }
@@ -66,7 +91,8 @@ const theme = extendTheme({
         Divider,
         Checkbox,
         Input,
-        FormLabel
+        FormLabel,
+        TextArea
     },
 
     breakpoints: {
@@ -75,6 +101,41 @@ const theme = extendTheme({
         lg: '62em',
         xl: '70em',
         '2xl': '96em',
+    },
+
+    layerStyles: {
+        formInputBase: {
+            borderStyle: 'solid',
+            borderTopWidth: '1px',
+            borderLeftWidth: '1px',
+            borderRightWidth: '2px',
+            borderBottomWidth: '2px',
+            borderRadius: '.25rem',
+            background: 'whiteAlpha.900',
+            transition: '.3s ease all',
+            bgGradient: 'linear(to-r, whiteAlpha.900 70%, yellow.300)',
+            bgSize: '128%',
+            shadow: 'md',
+            px: 2,
+            borderColor: 'gray.900',
+            _focus: {
+                borderTopWidth: '1px',
+                borderLeftWidth: '1px',
+                borderRightWidth: '2px',
+                borderBottomWidth: '2px',
+                borderColor: 'gray.900',
+                bgSize:'100%'
+            },
+            _focusVisible: {
+                borderWidth: 'none',
+                dropShadow: 0
+            }
+        },
+        formInputHover: {
+            borderColor: 'gray.900',
+            bgSize:'100%',
+            shadow: 'lg'
+        }
     }
 })
 
