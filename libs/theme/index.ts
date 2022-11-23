@@ -135,6 +135,10 @@ const theme = extendTheme({
             borderColor: 'gray.900',
             bgSize:'100%',
             shadow: 'lg'
+        },
+        formInputFocus: {
+            borderColor: 'gray.900',
+            bgSize:'100%'
         }
     }
 })

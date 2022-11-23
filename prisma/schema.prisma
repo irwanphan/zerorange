@@ -22,3 +22,25 @@ model Task {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 }
+
+model User {
+  id          String      @id @default(cuid())
+  image       String?
+  email       String
+  firstName   String
+  lastName    String?
+  company     String[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Company {
+  id          String      @id @default(cuid())
+  image       String?
+  email       String
+  name        String
+  admin       String
+  member      String[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}

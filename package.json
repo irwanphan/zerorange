@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.2",
+    "@choc-ui/chakra-autocomplete": "^5.1.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@prisma/client": "^4.6.0",
