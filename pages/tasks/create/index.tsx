@@ -2,9 +2,10 @@ import BubbleContainer from "@elements/BubbleContainer"
 import FormInput from "@elements/FornInput"
 import PageSection from "@elements/Section"
 import MainLayout from "@libs/layouts/MainLayout"
-import { FiPenTool } from "react-icons/fi"
-import { users } from "@data//mockUsers"
+import { FiPenTool, FiUser } from "react-icons/fi"
 import { Button } from "@chakra-ui/react"
+
+import { users } from "@data//mockUsers"
 
 const CreateTask = () => {
     // console.log(users)
@@ -20,6 +21,7 @@ const CreateTask = () => {
                         <FormInput 
                             type="selection"
                             options={users}
+                            icon={FiUser}
                             label="assign to" />
                         <FormInput label="title" />
                         <FormInput type="textarea" label="description" />

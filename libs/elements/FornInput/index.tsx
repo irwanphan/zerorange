@@ -55,16 +55,24 @@ const FormInput = ({label, type, options, icon, spaceAfter, children, ...rest}:F
                             _focus={{ layerStyle: 'formInputFocus', bgGradient: 'linear(to-r, whiteAlpha.900 70%, yellow.300)' }}
                         />
                     </InputGroup>
-                    <AutoCompleteList>
-                        {options!.map((option, oid) => (
-                            <AutoCompleteItem
-                                key={`option-${oid}`}
-                                value={option.label}
-                                textTransform="capitalize"
-                                >
-                                {option.label}
-                            </AutoCompleteItem>
-                        ))}
+                    <AutoCompleteList p={0} mt={0}>
+                        <Box border='1px solid black'
+                            borderRadius='0.5rem'
+                            position='relative'
+                        >
+                            {options!.map((option, oid) => (
+                                <AutoCompleteItem
+                                    key={`option-${oid}`}
+                                    value={option.label}
+                                    // textTransform="capitalize"
+                                    _selected={{ bg: "transparent" }}
+                                    _focus={{ bg: "transparent", textDecoration: "underline" }}
+                                    _hover={{ bg: "transparent", textDecoration: "underline" }}
+                                    >
+                                    {option.label}
+                                </AutoCompleteItem>
+                            ))}
+                        </Box>
                     </AutoCompleteList>
                 </AutoComplete>
             )
