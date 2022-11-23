@@ -139,6 +139,34 @@ const theme = extendTheme({
         formInputFocus: {
             borderColor: 'gray.900',
             bgSize:'100%'
+        },
+        formSubmitButtonBase: {
+            borderStyle: 'solid',
+            borderTopWidth: '1px',
+            borderLeftWidth: '1px',
+            borderRightWidth: '2px',
+            borderBottomWidth: '3px',
+            borderRadius: '.25rem',
+            // background: 'whiteAlpha.900',
+            transition: '.3s ease all',
+            bgGradient: 'linear(108deg, yellow.100 10%, yellow.300 60%, whiteAlpha.800 65%, yellow.300)',
+            bgSize: '250%',
+            shadow: 'md',
+            px: 2,
+            borderColor: 'gray.900',
+            _focus: {
+                borderTopWidth: '1px',
+                borderLeftWidth: '1px',
+                borderRightWidth: '2px',
+                borderBottomWidth: '3px',
+                borderColor: 'gray.900',
+                bgSize:'100%'
+            }
+        },
+        formSubmitButtonHover: {
+            borderColor: 'gray.900',
+            bgSize:'100%',
+            shadow: 'lg'
         }
     }
 })

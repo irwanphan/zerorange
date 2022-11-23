@@ -3,7 +3,7 @@ import FormInput from "@elements/FornInput"
 import PageSection from "@elements/Section"
 import MainLayout from "@libs/layouts/MainLayout"
 import { FiPenTool, FiUser } from "react-icons/fi"
-import { Button } from "@chakra-ui/react"
+import { Button, Flex } from "@chakra-ui/react"
 
 import { users } from "@data//mockUsers"
 
@@ -26,9 +26,21 @@ const CreateTask = () => {
                         <FormInput label="title" />
                         <FormInput type="textarea" label="description" />
 
-                        <Button>
-                            Submit
-                        </Button>
+                        <Flex
+                            mt={4}
+                            direction="row"
+                            justifyContent="flex-end"
+                            gap={4}
+                        >
+                            <Button
+                                type="submit"
+                                layerStyle='formSubmitButtonBase'
+                                _hover={{ layerStyle:'formSubmitButtonHover' }}
+                            >
+                                Submit
+                            </Button>
+
+                        </Flex>
                     </form>
                 </BubbleContainer>
             </PageSection>
