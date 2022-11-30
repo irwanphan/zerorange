@@ -1,26 +1,28 @@
-import { TaskProps } from '@libs/components/BlockTasks';
+import { MemoProps } from '@libs/components/BlockMemos';
 import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { type } from 'os';
 
 const prisma = new PrismaClient();
 
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     if (req.method === 'POST') {
         try {
-            const { image, title, description, price } = req.body;
+            const { sentBy, assignedTo, title, description } = req.body;
 
-            const task = await prisma.task.create({
+            const memo = await prisma.memo.create({
                 data: {
-                    image,
+                    sentBy,
+                    assignedTo,
                     title,
-                    description,
-                    price
+                    description
                 },
             });
-            res.status(200).json(task);
+
+            console.log(memo)
+            res.status(200).json(memo);
         } catch (e) {
-            res.status(500).json({ message: 'Something went wrong' });
+            console.log(e)
+            res.status(500).json({ message: `${e}` });
         }
     }
     else {

@@ -10,13 +10,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Task {
+model Memo {
   id          String      @id @default(cuid())
   image       String?
   title       String
   description String
   price       Float       @default(0) 
-  assignedTo  String?
+  sentBy      String
+  assignedTo  String
   ccTo        String[]
   dueAt       DateTime?
   createdAt   DateTime    @default(now())

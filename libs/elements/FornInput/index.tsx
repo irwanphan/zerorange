@@ -1,5 +1,4 @@
 import { Box, Flex, FlexProps, FormControl, FormLabel, Input, InputGroup, InputLeftElement, Textarea } from "@chakra-ui/react"
-// import { users } from "@data//mockUsers"
 import {
     AutoComplete,
     AutoCompleteInput,
@@ -7,6 +6,8 @@ import {
     AutoCompleteList,
     AutoCompleteTag,
 } from "@choc-ui/chakra-autocomplete";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FiList } from "react-icons/fi";
 import { IconType } from "react-icons/lib";
 
@@ -16,39 +17,60 @@ interface optionProps {
     value?: string
     label: string
 }
-// interface multiTagProps {
-//     id: string
-//     image: string
-//     value: string
-//     label: string
-// }
-
 interface FormInputProps extends FlexProps {
+    name: string
     label? : string
     type? : string
-    // items? : multiTagProps[]
+    register: any
+    value? : string | number
     options? : optionProps[]
     icon? : IconType
     spaceAfter?: string
+    disabled?: boolean
 }
 
-const FormInput = ({label, type, options, icon, spaceAfter, children, ...rest}:FormInputProps) => {
+const FormInput = ({name, label, type, register, value, options, icon, spaceAfter, disabled, children, ...rest}:FormInputProps) => {
+    const { setValue } = useForm()
+    const [ data, setData ] = useState('')
+    
+    // useEffect(() => {
+    //     console.log(register)
+    // }, [data])
 
     const FormInputManifest = () => {
         if (type === 'selection') {
             return (
+                <>
                 <AutoComplete 
-                    onChange={vals => console.log(vals)}
+                    onChange={async (vals) => {
+                        try {
+                            console.log('value:', vals)
+                            console.log('name:', name)
+                            await setData(vals)
+                            console.log(data)
+                        }
+                        catch (e) {
+                            console.log(e)
+                        }
+                    }}
                     rollNavigation>
+                    <Input 
+                        // hidden 
+                        // readOnly
+                        {...register(name)}
+                        name={name}
+                        type="text"
+                        value={data} 
+                    />
                     <InputGroup mb={ spaceAfter ?? '2' } >
                         <InputLeftElement
                             pointerEvents="none"
                             color="inherit"
-                            fontSize="1.2em"
-                            >
+                            fontSize="1.2em">
                             <Box as={icon ?? FiList} />
                         </InputLeftElement>
                         <AutoCompleteInput variant="filled" placeholder="Search..." 
+                            value={value}
                             borderColor='gray.900'
                             layerStyle='formInputBase'
                             _hover={{ layerStyle: 'formInputHover' }}
@@ -59,22 +81,22 @@ const FormInput = ({label, type, options, icon, spaceAfter, children, ...rest}:F
                         <Box border='1px solid black'
                             borderRadius='0.5rem'
                             position='relative'
-                        >
+                            >
                             {options!.map((option, oid) => (
                                 <AutoCompleteItem
-                                    key={`option-${oid}`}
-                                    value={option.label}
-                                    // textTransform="capitalize"
-                                    _selected={{ bg: "transparent" }}
-                                    _focus={{ bg: "transparent", textDecoration: "underline" }}
-                                    _hover={{ bg: "transparent", textDecoration: "underline" }}
-                                    >
+                                key={`option-${oid}`}
+                                value={option.label}
+                                _selected={{ bg: "transparent" }}
+                                _focus={{ bg: "transparent", textDecoration: "underline" }}
+                                _hover={{ bg: "transparent", textDecoration: "underline" }}
+                                >
                                     {option.label}
                                 </AutoCompleteItem>
                             ))}
                         </Box>
                     </AutoCompleteList>
                 </AutoComplete>
+                </>
             )
         }
         if (type === 'multitags') {
@@ -93,6 +115,7 @@ const FormInput = ({label, type, options, icon, spaceAfter, children, ...rest}:F
                             onChange={vals => console.log(vals)}
                             >
                             <AutoCompleteInput 
+                                name={name}
                                 _groupFocus={{ layerStyle: 'formInputHover' }}
                                 variant="filled"
                                 bgColor='transparent'
@@ -140,20 +163,28 @@ const FormInput = ({label, type, options, icon, spaceAfter, children, ...rest}:F
         if (type === 'textarea') {
             return (
                 <Textarea
+                    {...register(name)}
+                    name={name}
+                    value={value}
                     layerStyle='formInputBase'
                     // border and _hover not working on extend theme
                     borderColor='gray.900'
                     _hover={{ layerStyle: 'formInputHover' }}
                     mb={ spaceAfter ?? '2' }
+                    isDisabled={disabled}
                 />
             )
         }
         return (
             <Input type='text'
+                {...register(name)}
+                name={name}
+                value={value}
                 layerStyle='formInputBase'
                 borderColor='gray.900'
                 _hover={{ layerStyle: 'formInputHover' }}
                 mb={ spaceAfter ?? '2' }
+                isDisabled={disabled}
             />
         )
     }

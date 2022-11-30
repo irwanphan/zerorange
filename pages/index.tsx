@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import BlockTasks, { TaskTypes } from '@libs/components/BlockTasks'
+import BlockMemos, { MemoTypes } from '@libs/components/BlockMemos'
 import BlockJourney from '@libs/components/BlockJourney'
 import BlockFounder from '@libs/components/BlockFounder'
 import BlockSkillset from '@libs/components/BlockSkillset'
@@ -10,12 +10,12 @@ import { PrismaClient } from '@prisma/client'
 import MainLayout from '@libs/layouts/MainLayout'
 const prisma = new PrismaClient()
 
-const Home:NextPage = ( {tasks} : any ) => {
+const Home:NextPage = ( {memos} : any ) => {
 
   return (
     <MainLayout>
 
-      <BlockTasks tasks={tasks} />
+      <BlockMemos memos={memos} />
       {/* <BlockSkillset skills={skills} /> */}
       {/* <BlockJourney works={works} /> */}
       {/* <BlockFounder founded={founded} /> */}
@@ -25,10 +25,10 @@ const Home:NextPage = ( {tasks} : any ) => {
 }
 
 export async function getStaticProps() {
-  const tasks = await prisma.task.findMany()
+  const memos = await prisma.memo.findMany()
   return {
     props: {
-      tasks: JSON.parse(JSON.stringify(tasks))
+      memos: JSON.parse(JSON.stringify(memos))
     }
   }
 }

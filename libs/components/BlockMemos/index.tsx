@@ -6,33 +6,35 @@ import { nanoid } from "nanoid"
 import { FiTrello } from "react-icons/fi"
 import axios from "axios"
 
-export interface TaskProps extends FlexProps {
+export interface MemoProps extends FlexProps {
     id          : string
     image?      : string
     title       : string
     description : string
+    sentBy      : string
+    assignedTo  : string
     price?      : number
     createdAt   : Date
     updatedAt   : Date
 }
-export type TaskTypes = {
-    tasks       : TaskProps[]
+export type MemoTypes = {
+    memos       : MemoProps[]
 }
 
-const BlockTasks = ( {tasks}:TaskTypes ) => {
+const BlockMemos = ( {memos}:MemoTypes ) => {
 
-    const addTask = (data:TaskProps) => axios.post('/api/tasks', data);
+    // const addTask = (data:TaskProps) => axios.post('/api/memos', data);
 
     return (
         <PageSection>
             <BubbleContainer>
-                <IconicTitle icon={FiTrello} hoverColor='blue.200'>Task List</IconicTitle>
+                <IconicTitle icon={FiTrello} hoverColor='blue.200'>Memo List</IconicTitle>
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
-                    {tasks[0].title}
+                    {/* {memos[0].title} */}
                 </SimpleGrid>
             </BubbleContainer>
       </PageSection>
     )
 }
 
-export default BlockTasks
+export default BlockMemos

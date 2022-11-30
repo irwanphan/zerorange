@@ -147,7 +147,6 @@ const theme = extendTheme({
             borderRightWidth: '2px',
             borderBottomWidth: '3px',
             borderRadius: '.25rem',
-            // background: 'whiteAlpha.900',
             transition: '.3s ease all',
             bgGradient: 'linear(108deg, yellow.100 10%, yellow.300 60%, whiteAlpha.800 65%, yellow.300)',
             bgSize: '250%',
