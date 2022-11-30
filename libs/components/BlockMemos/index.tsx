@@ -29,7 +29,44 @@ const BlockMemos = ( {memos}:MemoTypes ) => {
         <PageSection>
             <BubbleContainer>
                 <IconicTitle icon={FiTrello} hoverColor='blue.200'>Memo List</IconicTitle>
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
+                <SimpleGrid columns={{ base: 2, md: 2 }} spacing='4'>
+                    {
+                        memos.map((memo) => {
+                            return (
+                                <Box
+                                    borderRadius='0.5rem'
+                                    borderBottomRightRadius='1.5rem'
+                                    borderStyle='solid'
+                                    borderColor='gray.800'
+                                    borderWidth='1px 2px 3px 1px'
+                                    bgGradient='linear(to-r, yellow.200, orange.200)'
+                                    role='group'
+                                    transition='.3s ease all'
+                                    py={2}
+                                    px={4}
+                                    _hover={{
+                                        shadow: 'lg'
+                                    }}
+                                >
+                                    <Text
+                                        fontWeight={600}
+                                        textTransform='capitalize'
+                                    >
+                                        {memo.title}
+                                    </Text>
+                                    <Text>
+                                        {memo.description}
+                                    </Text>
+                                    <Text
+                                        mt={3}
+                                        fontSize={12}
+                                    >
+                                        from: {memo.sentBy}
+                                    </Text>
+                                </Box>
+                            )
+                        })
+                    }
                     {/* {memos[0].title} */}
                 </SimpleGrid>
             </BubbleContainer>

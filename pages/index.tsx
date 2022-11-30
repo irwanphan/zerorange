@@ -11,7 +11,7 @@ import MainLayout from '@libs/layouts/MainLayout'
 const prisma = new PrismaClient()
 
 const Home:NextPage = ( {memos} : any ) => {
-
+  console.log(memos)
   return (
     <MainLayout>
 

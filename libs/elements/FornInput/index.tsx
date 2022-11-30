@@ -40,7 +40,6 @@ const FormInput = ({name, label, type, register, value, options, icon, spaceAfte
     const FormInputManifest = () => {
         if (type === 'selection') {
             return (
-                <>
                 <AutoComplete 
                     onChange={async (vals) => {
                         try {
@@ -96,7 +95,6 @@ const FormInput = ({name, label, type, register, value, options, icon, spaceAfte
                         </Box>
                     </AutoCompleteList>
                 </AutoComplete>
-                </>
             )
         }
         if (type === 'multitags') {
