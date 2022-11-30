@@ -43,8 +43,12 @@ export async function getStaticProps({ params }:any) {
 
 const ViewMemo = (memo:MemoProps|null = null) => {
     const router = useRouter()
-    // const theRoute = router.query.id
-    console.log(memo)
+    // console.log(memo)
+
+    // fallback version
+    if (router.isFallback) {
+        return 'loading...'
+    }
 
     return (
         <MainLayout>

@@ -30,7 +30,7 @@ const BlockMemos = ( {memos}:MemoTypes ) => {
         <PageSection>
             <BubbleContainer>
                 <IconicTitle icon={FiTrello} hoverColor='blue.200'>Memo List</IconicTitle>
-                <SimpleGrid columns={{ base: 2, md: 2 }} spacing='4'>
+                <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
                     {
                         memos.map((memo) => {
                             return (

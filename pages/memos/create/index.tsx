@@ -11,7 +11,7 @@ import FormAddMemo from "@libs/components/PageMemos/FormAddMemo"
 
 const CreateMemo = () => {
     // console.log(users)
-    const addMemo = (data:any) => axios.post('/api/tasks', data);
+    const addMemo = (data:any) => axios.post('/api/memos', data);
 
     return (
         <MainLayout>

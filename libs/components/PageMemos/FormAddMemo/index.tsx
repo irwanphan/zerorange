@@ -1,7 +1,7 @@
 import { Box, Button, Flex } from "@chakra-ui/react"
 import * as Yup from 'yup'
 import { Formik, Form } from "formik"
-import { useRouter } from "next/router"
+import router, { useRouter } from "next/router"
 import { useState } from "react"
 import { users } from "@data//mockUsers"
 import FormInput from "@elements/FornInput"
@@ -33,9 +33,15 @@ const FormAddMemo = ({
 
     return (
         <form
-            onSubmit={handleSubmit((data) => {
-                console.log(data)
-                onSubmit(data)
+            onSubmit={handleSubmit(async (data) => {
+                try {
+                    // console.log(data)
+                    await onSubmit(data)
+                    router.push('/');
+                }
+                catch (e) {
+                    console.log(e)
+                }
             })}
         >
             <FormInput 

@@ -44,7 +44,7 @@ const AnchorMenuNav = () => {
                             <AnchorMenuIcon href='https://instagram.com/irwanphan' tooltip='follow me'>
                                 <FiInstagram/>
                             </AnchorMenuIcon>
-                            <AnchorMenuIcon href='https://github.com/irwanphan' tooltip='my repos'>
+                            <AnchorMenuIcon href='https://github.com/irwanphan/zerorange' tooltip='fork JarakNol'>
                                 <FiGithub/>
                             </AnchorMenuIcon>
                         </HStack>
