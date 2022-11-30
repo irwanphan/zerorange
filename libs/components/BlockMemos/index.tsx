@@ -5,6 +5,7 @@ import PageSection from "@elements/Section"
 import { nanoid } from "nanoid"
 import { FiTrello } from "react-icons/fi"
 import axios from "axios"
+import NextLink from 'next/link'
 
 export interface MemoProps extends FlexProps {
     id          : string
@@ -33,37 +34,40 @@ const BlockMemos = ( {memos}:MemoTypes ) => {
                     {
                         memos.map((memo) => {
                             return (
-                                <Box key={memo.id}
-                                    borderRadius='0.5rem'
-                                    borderBottomRightRadius='1.5rem'
-                                    borderStyle='solid'
-                                    borderColor='gray.800'
-                                    borderWidth='1px 2px 3px 1px'
-                                    bgGradient='linear(to-r, yellow.200, orange.200)'
-                                    role='group'
-                                    transition='.3s ease all'
-                                    py={2}
-                                    px={4}
-                                    _hover={{
-                                        shadow: 'lg'
-                                    }}
-                                >
-                                    <Text
-                                        fontWeight={600}
-                                        textTransform='capitalize'
+                                <NextLink passHref href={`/memos/${memo.id}`}>
+                                    <Box key={memo.id}
+                                        borderRadius='0.5rem'
+                                        borderBottomRightRadius='1.5rem'
+                                        borderStyle='solid'
+                                        borderColor='gray.800'
+                                        borderWidth='1px 2px 3px 1px'
+                                        bgGradient='linear(to-r, yellow.200, orange.200)'
+                                        role='group'
+                                        transition='.3s ease all'
+                                        py={2}
+                                        px={4}
+                                        _hover={{
+                                            shadow: 'lg',
+                                            cursor: 'pointer'
+                                        }}
                                     >
-                                        {memo.title}
-                                    </Text>
-                                    <Text>
-                                        {memo.description}
-                                    </Text>
-                                    <Text
-                                        mt={3}
-                                        fontSize={12}
-                                    >
-                                        from: {memo.sentBy}
-                                    </Text>
-                                </Box>
+                                        <Text
+                                            fontWeight={600}
+                                            textTransform='capitalize'
+                                        >
+                                            {memo.title}
+                                        </Text>
+                                        <Text>
+                                            {memo.description}
+                                        </Text>
+                                        <Text
+                                            mt={3}
+                                            fontSize={12}
+                                        >
+                                            from: {memo.sentBy}
+                                        </Text>
+                                    </Box>
+                                </NextLink>
                             )
                         })
                     }

@@ -32,8 +32,9 @@ const IconicTitle = ({icon, hoverColor, children, ...rest}: IconicTitleProps) =>
                 />
                 <Text 
                     fontSize={20} fontWeight={700}
+                    whiteSpace='nowrap'
                     position='relative' 
-                    top={-2} 
+                    top={-2}
                     letterSpacing={1}>
                     {children}
                 </Text>

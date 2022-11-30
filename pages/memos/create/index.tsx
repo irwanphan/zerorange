@@ -2,7 +2,7 @@ import BubbleContainer from "@elements/BubbleContainer"
 import FormInput from "@elements/FornInput"
 import PageSection from "@elements/Section"
 import MainLayout from "@libs/layouts/MainLayout"
-import { FiPenTool, FiUser } from "react-icons/fi"
+import { FiFeather, FiPenTool, FiUser } from "react-icons/fi"
 import { Button, Flex } from "@chakra-ui/react"
 import axios from "axios"
 
@@ -18,7 +18,7 @@ const CreateMemo = () => {
             <PageSection>
                 <BubbleContainer
                     title="Create New Memo"
-                    icon={FiPenTool}
+                    icon={FiFeather}
                 >
                     <FormAddMemo onSubmit={addMemo}/>
                 </BubbleContainer>

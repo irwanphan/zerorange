@@ -1,6 +1,6 @@
 import { Box, Flex, HStack } from "@chakra-ui/react"
 import AnchorMenuIcon from "@elements/AnchorMenu"
-import { FiMail, FiGithub, FiLinkedin, FiFeather, FiDribbble, FiInstagram, FiPenTool } from "react-icons/fi"
+import { FiMail, FiGithub, FiLinkedin, FiFeather, FiDribbble, FiInstagram, FiPenTool, FiTrello } from "react-icons/fi"
 import { InView, useInView } from "react-intersection-observer"
 
 const AnchorMenuNav = () => {
@@ -35,6 +35,9 @@ const AnchorMenuNav = () => {
                         bottom={-4} left={0} right={0}        
                         >
                         <HStack gap={{ base: 0, md: 2 }}>
+                            <AnchorMenuIcon href='/' tooltip='dashboard'>
+                                <FiTrello/>
+                            </AnchorMenuIcon>
                             <AnchorMenuIcon href='/memos/create' tooltip='add new memo'>
                                 <FiFeather/>
                             </AnchorMenuIcon>
