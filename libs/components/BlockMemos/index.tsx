@@ -33,7 +33,7 @@ const BlockMemos = ( {memos}:MemoTypes ) => {
                     {
                         memos.map((memo) => {
                             return (
-                                <Box
+                                <Box key={memo.id}
                                     borderRadius='0.5rem'
                                     borderBottomRightRadius='1.5rem'
                                     borderStyle='solid'

@@ -6,6 +6,7 @@ const MainLayout = ({children, ...rest}: FlexProps) => {
     return (
         <Box
             bgColor='blue.50'
+            minHeight='100vh'
             pb={10}
             {...rest}
         >

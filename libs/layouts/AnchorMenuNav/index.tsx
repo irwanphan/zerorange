@@ -35,8 +35,8 @@ const AnchorMenuNav = () => {
                         bottom={-4} left={0} right={0}        
                         >
                         <HStack gap={{ base: 0, md: 2 }}>
-                            <AnchorMenuIcon href='/tasks/create' tooltip='add new task'>
-                                <FiPenTool/>
+                            <AnchorMenuIcon href='/memos/create' tooltip='add new memo'>
+                                <FiFeather/>
                             </AnchorMenuIcon>
                             <AnchorMenuIcon href='https://instagram.com/irwanphan' tooltip='follow me'>
                                 <FiInstagram/>

@@ -9,47 +9,25 @@ import { toast } from 'react-hot-toast';
 import { FiUser } from "react-icons/fi"
 import { useForm } from "react-hook-form"
 
-const TaskSchema = Yup.object().shape({
+const MemoSchema = Yup.object().shape({
+    sentBy: Yup.string().trim().required(),
     assignedTo: Yup.string().trim().required(),
     title: Yup.string().trim().required(),
     description: Yup.string().trim().required(),
 })
 
 interface FormValueProps {
+    sentBy: string
     assignedTo: string
     title: string
     description: string
 }
 interface FormAddMemoProps {
-    // initialValues: FormValueProps|null
-    // redirectPath: string
-    // buttonText: string
     onSubmit: Function
 }
 const FormAddMemo = ({
     onSubmit
 }: FormAddMemoProps) => {
-
-    // const handleOnSubmit = async (values:any = null) => {
-    //     let toastId
-    //     console.log(...values)
-    //     try {
-    //         setDisabled(true);
-    //         toastId = toast.loading('Submitting...');
-    //         // Submit data
-    //         if (typeof onSubmit === 'function') {
-    //             await onSubmit({ ...values });
-    //         }
-    //         toast.success('Successfully submitted', { id: toastId });
-    //         // Redirect user
-    //         if (redirectPath) {
-    //             router.push(redirectPath);
-    //         }
-    //     } catch (e) {
-    //         toast.error('Unable to submit', { id: toastId });
-    //         setDisabled(false);
-    //     }
-    // }
 
     const { register, handleSubmit } = useForm()
 
@@ -57,7 +35,7 @@ const FormAddMemo = ({
         <form
             onSubmit={handleSubmit((data) => {
                 console.log(data)
-                // onSubmit(data)
+                onSubmit(data)
             })}
         >
             <FormInput 
@@ -76,27 +54,22 @@ const FormAddMemo = ({
                 register={register}
                 name="title"
                 // disabled={disabled}
-                label="title" 
-            />
+                label="title" />
             <FormInput 
                 register={register}
                 name="description"
                 type="textarea" 
                 // disabled={disabled}
-                label="description" 
-            />
-
+                label="description" />
             <Flex
                 mt={4}
                 direction="row"
                 justifyContent="flex-end"
-                gap={4}
-            >
+                gap={4}>
                 <Button
                     type="submit"
                     layerStyle='formSubmitButtonBase'
-                    _hover={{ layerStyle:'formSubmitButtonHover' }}
-                >
+                    _hover={{ layerStyle:'formSubmitButtonHover' }}>
                     submit
                 </Button>
 
