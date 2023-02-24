@@ -1,4 +1,3 @@
-import { MemoProps } from '@libs/components/BlockMemos';
 import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 
