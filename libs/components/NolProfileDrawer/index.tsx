@@ -19,7 +19,7 @@ const NolProfileDrawer = ({placement, onClose, isOpen}: NolProfileDrawerInterfac
                 <DrawerHeader>
                     <NolAuth />
                     <Divider />
-                    Your Cart
+                    Your Dash-Drawer
                 </DrawerHeader>
                 <DrawerBody>
                     asdf
@@ -27,9 +27,9 @@ const NolProfileDrawer = ({placement, onClose, isOpen}: NolProfileDrawerInterfac
 
                 <DrawerFooter>
                     <FormSubmitButton notLink onClick={onClose} mr={2}>
-                        Cancel
+                        Close
                     </FormSubmitButton>
-                    { session ?
+                    {/* { session ?
                         <FormSubmitButton href="/checkout" buttonColor="green.100" >
                             Checkout
                         </FormSubmitButton>
@@ -42,7 +42,7 @@ const NolProfileDrawer = ({placement, onClose, isOpen}: NolProfileDrawerInterfac
                             href="/" buttonColor="green.50" >
                             <Box as={FcGoogle} mr={1} fontSize={20} />Login to Checkout
                         </FormSubmitButton>
-                    }
+                    } */}
                 </DrawerFooter>
             </DrawerContent>
         </Drawer>

@@ -30,7 +30,7 @@ const AnchorMenuNav = () => {
                     />
                     <Flex  
                         w={{ base: 'full', md: 'max-content' }}
-                        gap={{ base: 0, md: 4 }}
+                        gap={{ base: 2, md: 4 }}
                         mx='auto'
                         alignItems='center'
                         justifyContent='center'
