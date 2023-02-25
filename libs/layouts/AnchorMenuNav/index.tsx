@@ -1,15 +1,27 @@
-import { Box, Flex, HStack } from "@chakra-ui/react"
-import AnchorMenuIcon from "@elements/AnchorMenu"
-import { FiMail, FiGithub, FiLinkedin, FiFeather, FiDribbble, FiInstagram, FiPenTool, FiTrello } from "react-icons/fi"
+import { Box, Flex, HStack, useDisclosure } from "@chakra-ui/react"
+import NolProfileDrawer from "@components/NolProfileDrawer"
+import AnchorMenuIcon, { AnchorMenuIconTrigger } from "@elements/AnchorMenu"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import { FiGithub, FiFeather, FiInstagram, FiTrello } from "react-icons/fi"
+import { MdFace } from "react-icons/md"
 import { InView, useInView } from "react-intersection-observer"
 
 const AnchorMenuNav = () => {
+    const router = useRouter()
+    const path = router.pathname
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const [ placement, setPlacement ] = useState<string|any>('right')
+
     const { ref, inView } = useInView({
         threshold: 0,
         rootMargin: '8rem'
     })
     
     return (
+        <Box>
+
         <InView>
             {({inView, ref}) =>
                 <Box>
@@ -17,7 +29,8 @@ const AnchorMenuNav = () => {
                         position={inView ? 'absolute' : 'relative'}
                     />
                     <Flex  
-                        w={{ base: 'full', md: 'max-content' }} 
+                        w={{ base: 'full', md: 'max-content' }}
+                        gap={{ base: 0, md: 4 }}
                         mx='auto'
                         alignItems='center'
                         justifyContent='center'
@@ -49,10 +62,23 @@ const AnchorMenuNav = () => {
                             </AnchorMenuIcon>
                         </HStack>
                         {/* <Box position='fixed' top={0} right={0}>{inView.toString()}</Box> */}
+
+                        <HStack gap={{ base: 0, md: 2 }}>
+                            {
+                                path == '/checkout' ? '' :
+                                <AnchorMenuIconTrigger tooltip='you got something' onOpen={onOpen}>
+                                    <MdFace />
+                                </AnchorMenuIconTrigger>
+                            }
+                        </HStack>
                     </Flex>
                 </Box>
             }
         </InView>
+
+            <NolProfileDrawer placement={placement} onClose={onClose} isOpen={isOpen} />
+            
+        </Box>
     )
 }
 
