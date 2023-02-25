@@ -6,7 +6,7 @@ import { FiFeather, FiPenTool, FiUser } from "react-icons/fi"
 import axios from "axios"
 
 import FormAddMemo from "@libs/components/PageMemos/FormAddMemo"
-import { Box, useToast } from "@chakra-ui/react"
+import { Box, Flex, useToast } from "@chakra-ui/react"
 import FormInput from "@elements/FormInput"
 import { useAuth } from "@contexts/authContext"
 import { useRecoilValue } from "recoil"
@@ -67,6 +67,22 @@ const CreateMemoPage = () => {
                 >
                     <Box>
                         <FormInput 
+                            name='sentBy'
+                            label='Send By' 
+                            placeholder="sender email"
+                            isDisabled={isDisabled}
+                            autoFocus
+                            register={register} />
+                            { errors?.sentBy && <WarningBox>{errors.sentBy.message}</WarningBox> }
+                        <FormInput 
+                            name='description'
+                            label='Description' 
+                            placeholder="Assign this to"
+                            isDisabled={isDisabled}
+                            autoFocus
+                            register={register} />
+                            { errors?.description && <WarningBox>{errors.description.message}</WarningBox> }
+                        <FormInput 
                             name='title'
                             label='Title' 
                             placeholder="eg. Check The Journal, Please"
@@ -85,7 +101,10 @@ const CreateMemoPage = () => {
                             { errors?.description && <WarningBox>{errors.description.message}</WarningBox> }
 
                         <NolGoldDivider />
-                        <FormSubmitButton notLink >asdf</FormSubmitButton>
+
+                        <Flex justifyContent='right'>
+                            <FormSubmitButton notLink >asdf</FormSubmitButton>
+                        </Flex>
                     </Box>
                     
                 </BubbleContainer>
