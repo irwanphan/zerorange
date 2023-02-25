@@ -7,13 +7,9 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.2",
-    "@choc-ui/chakra-autocomplete": "^5.1.4",
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
     "@emotion/styled": "^11.10.4",
-    "@mantine/core": "^5.10.4",
-    "@mantine/hooks": "^5.10.4",
-    "@mantine/next": "^5.10.4",
     "@prisma/client": "^4.6.0",
     "@types/axios": "^0.14.0",
     "@types/nanoid": "^3.0.0",

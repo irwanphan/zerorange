@@ -1,20 +1,10 @@
 import { Box, Button, Flex } from "@chakra-ui/react"
-import * as Yup from 'yup'
-import { Formik, Form } from "formik"
 import router, { useRouter } from "next/router"
 import { useState } from "react"
 import { users } from "@data//mockUsers"
 import FormInput from "@elements/FornInput"
-import { toast } from 'react-hot-toast';
 import { FiUser } from "react-icons/fi"
 import { useForm } from "react-hook-form"
-
-const MemoSchema = Yup.object().shape({
-    sentBy: Yup.string().trim().required(),
-    assignedTo: Yup.string().trim().required(),
-    title: Yup.string().trim().required(),
-    description: Yup.string().trim().required(),
-})
 
 interface FormValueProps {
     sentBy: string
