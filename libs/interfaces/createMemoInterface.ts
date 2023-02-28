@@ -1,5 +1,5 @@
 export interface IFormInput {
-    sentBy: string
+    sentBy: string | undefined
     assignTo: string
     title: string
     description: string

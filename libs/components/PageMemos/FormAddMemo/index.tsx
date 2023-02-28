@@ -1,8 +1,8 @@
 import { Box, Button, Flex } from "@chakra-ui/react"
 import router, { useRouter } from "next/router"
 import { useState } from "react"
-import { users } from "@data//mockUsers"
-import FormInput from "@elements/FornInput"
+import { users } from "@libs/data/mockUsers"
+import FormInput from "@elements/FormInput"
 import { FiUser } from "react-icons/fi"
 import { useForm } from "react-hook-form"
 

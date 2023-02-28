@@ -19,9 +19,10 @@ interface FormInputProps extends FlexProps {
     icon? : IconType
     spaceAfter?: string
     isDisabled?: boolean
+    isReadOnly?: boolean
 }
 
-const FormInput = ({name, label, type, register, autoFocus, value, placeholder, options, icon, spaceAfter, isDisabled, children, ...rest}:FormInputProps) => {
+const FormInput = ({name, label, type, register, autoFocus, value, placeholder, options, icon, spaceAfter, isDisabled, isReadOnly, children, ...rest}:FormInputProps) => {
     const FormInputManifest = () => {
         if (type === 'textarea') {
             return (
@@ -36,6 +37,7 @@ const FormInput = ({name, label, type, register, autoFocus, value, placeholder, 
                     _hover={{ layerStyle: 'formInputHover' }}
                     mb={ spaceAfter ?? '2' }
                     isDisabled={isDisabled}
+                    isReadOnly={isReadOnly}
                     autoFocus={autoFocus}
                 />
             )
@@ -52,6 +54,7 @@ const FormInput = ({name, label, type, register, autoFocus, value, placeholder, 
                         borderColor='gray.900'
                         _hover={{ layerStyle: 'formInputHover' }}
                         mb={ spaceAfter ?? '2' }
+                        isReadOnly={isReadOnly}
                         autoFocus={autoFocus}
                     />
                 </NumberInput>
@@ -68,6 +71,7 @@ const FormInput = ({name, label, type, register, autoFocus, value, placeholder, 
                 _hover={{ layerStyle: 'formInputHover' }}
                 mb={ spaceAfter ?? '2' }
                 autoFocus={autoFocus}
+                isReadOnly={isReadOnly}
                 isDisabled={isDisabled}
             />
         )

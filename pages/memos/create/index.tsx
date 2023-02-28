@@ -17,6 +17,7 @@ import { createMemoResolver, IFormInput } from "@interfaces//createMemoInterface
 import WarningBox from "@elements/WarningBox"
 import FormSubmitButton from "@elements/FormSubmit"
 import NolGoldDivider from "@elements/NolGoldDivider"
+import LoadingBlock from "@elements/LoadingBlock"
 
 const resolver: Resolver<IFormInput> = async (values) => {
     return createMemoResolver(values)
@@ -26,7 +27,9 @@ const CreateMemoPage = () => {
     // const addMemo = (data:any) => axios.post('/api/memos', data);
 
     const { session, isLoadingSession } = useAuth()
-    // console.log(session)
+    console.log(session?.user.email)
+    const [ userEmail, setUserEmail ] = useState<string|undefined>()
+
     // const checkCart = useRecoilValue<CartItemCheckoutInterface[]|any>(checkCartState)
     // const setCart = useSetRecoilState(cartState)
     // const { total, isLoadingTotal } = useCartTotal()
@@ -34,7 +37,7 @@ const CreateMemoPage = () => {
     const [ isLoading, setIsLoading ] = useState(true)
     const [ isDisabled, setDisabled ] = useState(false)
     // handling form
-    const { handleSubmit, register, formState: { errors } } = useForm({
+    const { handleSubmit, register, setValue, formState: { errors } } = useForm({
         defaultValues: {
             sentBy: '',
             assignTo: '',
@@ -45,7 +48,9 @@ const CreateMemoPage = () => {
     })
 
     useEffect(() => {
-        if(session !== null) {
+        // setUserEmail(session?.user.email)
+        setValue('sentBy', session?.user.email)
+        if(session) {
             setIsLoading(false)
         }
     }, [session])
@@ -56,6 +61,14 @@ const CreateMemoPage = () => {
     const toast = useToast()
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         // console.log('running', data)
+    }
+
+    if (isLoading) {
+        return (
+            <MainLayout>
+                <LoadingBlock />
+            </MainLayout>
+        )
     }
 
     return (
@@ -70,13 +83,15 @@ const CreateMemoPage = () => {
                             name='sentBy'
                             label='Send By' 
                             placeholder="sender email"
+                            value={userEmail}
                             isDisabled={isDisabled}
+                            isReadOnly
                             autoFocus
                             register={register} />
                             { errors?.sentBy && <WarningBox>{errors.sentBy.message}</WarningBox> }
                         <FormInput 
-                            name='description'
-                            label='Description' 
+                            name='assignTo'
+                            label='Assign To' 
                             placeholder="Assign this to"
                             isDisabled={isDisabled}
                             autoFocus
