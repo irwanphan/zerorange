@@ -2,6 +2,9 @@ import { Box, FlexProps, HStack, Icon, Text } from "@chakra-ui/react"
 import { ReactNode } from "react"
 import { TbBrandReactNative, TbBrandNextjs, TbCircle, TbBrandVue, TbBrandNuxt, TbBrandAngular, TbBrandJavascript, TbBrandSass, TbBrandTailwind, TbBrandBootstrap, TbBrandCss3, TbBrandGit, TbFileSpreadsheet, TbChartDots3, TbLayoutGridAdd, TbLayoutBoardSplit, TbLayoutKanban, TbBrandFigma, TbDevices, TbBrandFirebase } from "react-icons/tb"
 import { BsLightningChargeFill } from "react-icons/bs"
+import { MdFace } from "react-icons/md"
+import { FaRegAddressBook } from "react-icons/fa"
+import { FiMoreHorizontal } from "react-icons/fi"
 
 interface SkillBadgeContentProps extends FlexProps {
     icon: string
@@ -38,6 +41,10 @@ export const IconMatched = ({icon, iconColor}:IconMatchedProps) => {
         "wireframe"     : <TbLayoutKanban />,
         "prototype"     : <TbDevices />,
         "figma"         : <TbBrandFigma />,
+
+        "user"          : <MdFace />,
+        "more"          : <FiMoreHorizontal />,
+        "addressbook"   : <FaRegAddressBook />,
 
         "default"       : <TbCircle />
     }

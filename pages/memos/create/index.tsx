@@ -94,6 +94,9 @@ const CreateMemoPage = () => {
                             label='Assign To' 
                             placeholder="Assign this to"
                             isDisabled={isDisabled}
+                            haveRightIcon
+                            rightIcon='addressbook'
+                            // rightIconFunction={() => {console.log('passed')}}
                             autoFocus
                             register={register} />
                             { errors?.description && <WarningBox>{errors.description.message}</WarningBox> }

@@ -1,4 +1,7 @@
-import { Box, FlexProps, FormLabel, Input, NumberInput, NumberInputField, Textarea } from "@chakra-ui/react"
+import { Box, FlexProps, FormLabel, Input, InputGroup, InputLeftElement, InputRightElement, NumberInput, NumberInputField, Textarea } from "@chakra-ui/react"
+import { IconMatched } from "@elements/SkillBadgeContent";
+import { ReactNode } from "react";
+import { FiMoreHorizontal } from "react-icons/fi";
 import { IconType } from "react-icons/lib";
 
 interface optionProps {
@@ -20,9 +23,14 @@ interface FormInputProps extends FlexProps {
     spaceAfter?: string
     isDisabled?: boolean
     isReadOnly?: boolean
+    haveLeftIcon?: boolean
+    leftIcon? : string
+    haveRightIcon?: boolean
+    rightIcon? : string
+    rightIconFunction? : void|any
 }
 
-const FormInput = ({name, label, type, register, autoFocus, value, placeholder, options, icon, spaceAfter, isDisabled, isReadOnly, children, ...rest}:FormInputProps) => {
+const FormInput = ({name, label, type, register, autoFocus, value, placeholder, options, icon, spaceAfter, isDisabled, isReadOnly, haveLeftIcon, leftIcon, haveRightIcon, rightIcon, rightIconFunction, children, ...rest}:FormInputProps) => {
     const FormInputManifest = () => {
         if (type === 'textarea') {
             return (
@@ -61,19 +69,45 @@ const FormInput = ({name, label, type, register, autoFocus, value, placeholder, 
             )
         }
         return (
-            <Input type='text'
-                {...register(name)}
-                name={name}
-                value={value}
-                placeholder={placeholder}
-                layerStyle='formInputBase'
-                borderColor='gray.900'
-                _hover={{ layerStyle: 'formInputHover' }}
-                mb={ spaceAfter ?? '2' }
-                autoFocus={autoFocus}
-                isReadOnly={isReadOnly}
-                isDisabled={isDisabled}
-            />
+            <InputGroup>
+                {   haveLeftIcon ?
+                    <InputLeftElement
+                        pointerEvents='none'
+                        color='gray.300'
+                        fontSize='1.2em'
+                    >
+                    </InputLeftElement>
+                    : <></>
+                }
+                <Input type='text'
+                    {...register(name)}
+                    name={name}
+                    value={value}
+                    placeholder={placeholder}
+                    layerStyle='formInputBase'
+                    borderColor='gray.900'
+                    _hover={{ layerStyle: 'formInputHover' }}
+                    mb={ spaceAfter ?? '2' }
+                    autoFocus={autoFocus}
+                    isReadOnly={isReadOnly}
+                    isDisabled={isDisabled}
+                />
+                {   haveRightIcon ?
+                    <InputRightElement
+                        pointerEvents={ rightIconFunction ? "inherit" : "none" }
+                        cursor={ rightIconFunction ? 'pointer' : 'default' }
+                        color='gray.300'
+                        fontSize='1.2em'
+                        onClick={rightIconFunction}
+                    >
+                        {   
+                            rightIcon   ? <IconMatched icon={rightIcon} iconColor='blackAlpha.800' /> 
+                                        : <FiMoreHorizontal/>
+                        }
+                    </InputRightElement>
+                    : <></>
+                }
+            </InputGroup>
         )
     }
 
