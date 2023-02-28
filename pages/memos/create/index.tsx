@@ -6,7 +6,7 @@ import { FiFeather, FiPenTool, FiUser } from "react-icons/fi"
 import axios from "axios"
 
 import FormAddMemo from "@libs/components/PageMemos/FormAddMemo"
-import { Box, Flex, useToast } from "@chakra-ui/react"
+import { Box, Flex, useDisclosure, useToast } from "@chakra-ui/react"
 import FormInput from "@elements/FormInput"
 import { useAuth } from "@contexts/authContext"
 import { useRecoilValue } from "recoil"
@@ -18,6 +18,7 @@ import WarningBox from "@elements/WarningBox"
 import FormSubmitButton from "@elements/FormSubmit"
 import NolGoldDivider from "@elements/NolGoldDivider"
 import LoadingBlock from "@elements/LoadingBlock"
+import ModalPopup from "@units/ModalPopup"
 
 const resolver: Resolver<IFormInput> = async (values) => {
     return createMemoResolver(values)
@@ -63,6 +64,21 @@ const CreateMemoPage = () => {
         // console.log('running', data)
     }
 
+    // handling logout modal
+    const { isOpen:isModalOpen, onOpen:onModalOpen, onClose:onModalClose } = useDisclosure()
+    const modalProps = {
+        title: `Roster List`,
+        texts: 'Pick someone',
+        button: 'Set',
+        action: () => {
+            // toastIdRef.current = toast({ title:'Logging Out...' })
+            onModalClose()
+            // setSession(null),
+            // signOut()
+            // toast.update(toastIdRef.current, { description: 'Logged Out' })
+        }
+    }
+
     if (isLoading) {
         return (
             <MainLayout>
@@ -96,7 +112,7 @@ const CreateMemoPage = () => {
                             isDisabled={isDisabled}
                             haveRightIcon
                             rightIcon='addressbook'
-                            // rightIconFunction={() => {console.log('passed')}}
+                            rightIconFunction={() => onModalOpen()}
                             autoFocus
                             register={register} />
                             { errors?.description && <WarningBox>{errors.description.message}</WarningBox> }
@@ -127,6 +143,8 @@ const CreateMemoPage = () => {
                     
                 </BubbleContainer>
             </PageSection>
+
+            <ModalPopup modalProps={modalProps} isOpen={isModalOpen} onClose={onModalClose} canCancel />
         </MainLayout>
     )
 }
