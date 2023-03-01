@@ -14,7 +14,7 @@ export async function getStaticPaths() {
         select: { id: true },
     })
     return {
-        paths: memos.map(memo => ({
+        paths: memos.map((memo:MemoInterface) => ({
             params: { id: memo.id },
         })),
         // set false to not accept any lazy build
