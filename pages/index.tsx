@@ -4,31 +4,32 @@ import BlockMemos from '@libs/components/BlockMemos'
 
 // Import the generated Prisma client
 import MainLayout from '@libs/layouts/MainLayout'
-import { MemoInterface, MemosInterface } from '@interfaces//memoInterface'
+import { MemoInterface } from '@interfaces//memoInterface'
 import { useEffect, useState } from 'react'
 import LoadingOverlay from '@elements/LoadingOverlay'
 import { useFetchMemos } from '@hooks/useFetchMemos'
-import prisma from '@libs/connections/prisma'
+import { useFetchAllMemos } from '@hooks/useFetchAllMemos'
 
-const Home:NextPage = ( {user}:any, {memos}:MemosInterface ) => {
+const Home:NextPage = ( {user}:any ) => {
   const [ isLoading, setIsLoading ] = useState<boolean>(true)
-  // const { memos, isLoadingMemos } = useFetchMemos(user.id)
+  const { memos, isLoadingMemos } = useFetchAllMemos()
 
-  console.log(memos)
   if (user) {
     console.log(user.email)
   }
-  if (memos) {
-    const memosSent = memos.filter((memo:MemoInterface) => (memo.sentBy === user.email))
+  if (!isLoadingMemos) {
+    const memosSent = memos?.filter((memo:MemoInterface) => (memo.sentBy === user.email))
     console.log("Memos sent: ", memosSent)
-    const memosAssigned = memos.filter((memo:MemoInterface) => (memo.assignTo === user.email))
+    const memosAssigned = memos?.filter((memo:MemoInterface) => (memo.assignTo === user.email))
     console.log("Memos assigned: ", memosAssigned)
   }
-  // useEffect(() => {
-  //   if (user) {
-  //       setIsLoading(false)
-  //   }
-  // }, [user])
+  useEffect(() => {
+    if (user) {
+      if (!isLoadingMemos) {
+        setIsLoading(false)
+      }
+    }
+  }, [user, isLoadingMemos])
 
   if (isLoading) {
     return (
@@ -45,15 +46,6 @@ const Home:NextPage = ( {user}:any, {memos}:MemosInterface ) => {
       
     </MainLayout>
   )
-}
-
-export async function getStaticProps() {
-  const memos = await prisma.memo.findMany()
-  return {
-    props: {
-      memos: JSON.parse(JSON.stringify(memos))
-    }
-  }
 }
 
 export default Home
