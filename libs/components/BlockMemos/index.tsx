@@ -6,23 +6,9 @@ import { nanoid } from "nanoid"
 import { FiTrello } from "react-icons/fi"
 import axios from "axios"
 import StickyMemo from "@units/StickyMemo"
+import { MemosInterface } from "@interfaces//memoInterface"
 
-export interface MemoProps extends FlexProps {
-    id          : string
-    image?      : string
-    title       : string
-    description : string
-    sentBy      : string
-    assignedTo  : string
-    price?      : number
-    createdAt   : Date
-    updatedAt   : Date
-}
-export type MemoTypes = {
-    memos       : MemoProps[]
-}
-
-const BlockMemos = ( {memos}:MemoTypes ) => {
+const BlockMemos = ( {memos}:MemosInterface ) => {
     // const addTask = (data:TaskProps) => axios.post('/api/memos', data)
 
     return (
