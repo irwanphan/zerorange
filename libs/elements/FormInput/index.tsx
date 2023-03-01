@@ -27,7 +27,7 @@ interface FormInputProps extends FlexProps {
     leftIcon? : string
     haveRightIcon?: boolean
     rightIcon? : string
-    rightIconFunction? : void|any
+    rightIconFunction? : () => void
 }
 
 const FormInput = ({name, label, type, register, autoFocus, value, placeholder, options, icon, spaceAfter, isDisabled, isReadOnly, haveLeftIcon, leftIcon, haveRightIcon, rightIcon, rightIconFunction, children, ...rest}:FormInputProps) => {

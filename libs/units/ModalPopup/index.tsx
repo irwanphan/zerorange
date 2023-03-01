@@ -11,7 +11,7 @@ interface ModalProps extends FlexProps {
 }
 interface modalPropDetails {
     title: string
-    texts: string
+    texts?: string
     action: MouseEventHandler<HTMLButtonElement> | any
     button: string
     cancel?: string

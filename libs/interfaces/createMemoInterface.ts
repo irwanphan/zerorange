@@ -23,8 +23,8 @@ export const createMemoResolver = (values:IFormInput) => {
                 }}
                 : !values.description ?
                 { province: {
-                        type: 'required',
-                        message: 'Description is required.'
+                    type: 'required',
+                    message: 'Description is required.'
                 }}
                 : {}
     }

@@ -34,13 +34,13 @@ const CreateMemoPage = () => {
     // const addMemo = (data:any) => axios.post('/api/memos', data);
     const { session, isLoadingSession } = useAuth()
     console.log(session?.user.email)
-    const [ userEmail, setUserEmail ] = useState<string|undefined>()
-    const [ assignEmail, setAssignEmail ] = useState<string>()
+    // const [ userEmail, setUserEmail ] = useState<string>('')
+    const [ assignEmail, setAssignEmail ] = useState<string>('')
 
     const [ isLoading, setIsLoading ] = useState(true)
     const [ isDisabled, setDisabled ] = useState(false)
     // handling form
-    const { handleSubmit, register, setValue, formState: { errors } } = useForm({
+    const { handleSubmit, register, setValue, setFocus, formState: { errors } } = useForm({
         defaultValues: {
             sentBy: '',
             assignTo: '',
@@ -51,7 +51,6 @@ const CreateMemoPage = () => {
     })
 
     useEffect(() => {
-        // setUserEmail(session?.user.email)
         setValue('sentBy', session?.user.email)
         if(session) {
             setIsLoading(false)
@@ -60,7 +59,6 @@ const CreateMemoPage = () => {
 
     const router = useRouter()
     const createUserIfNotExist = (data:any) => axios.post('/api/users', data)
-    const createPurchaseOrder = (data:any) => axios.post('/api/purchases', data)
     const toast = useToast()
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         // console.log('running', data)
@@ -69,15 +67,13 @@ const CreateMemoPage = () => {
     // handling logout modal
     const { isOpen:isModalOpen, onOpen:onModalOpen, onClose:onModalClose } = useDisclosure()
     const modalProps = {
-        title: `Roster List`,
-        texts: 'Pick someone',
+        title: `Pick Someone`,
         button: 'Set',
         action: () => {
-            // toastIdRef.current = toast({ title:'Logging Out...' })
+            setValue('assignTo', assignEmail)
             onModalClose()
-            // setSession(null),
-            // signOut()
-            // toast.update(toastIdRef.current, { description: 'Logged Out' })
+            setFocus('title') // focus on title Input // not working
+            setAssignEmail('') // clear assign email state
         }
     }
 
@@ -101,7 +97,6 @@ const CreateMemoPage = () => {
                             name='sentBy'
                             label='Send By' 
                             placeholder="sender email"
-                            value={userEmail}
                             isDisabled={isDisabled}
                             isReadOnly
                             autoFocus
