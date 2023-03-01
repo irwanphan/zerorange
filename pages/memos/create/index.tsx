@@ -61,7 +61,7 @@ const CreateMemoPage = () => {
     const createUserIfNotExist = (data:any) => axios.post('/api/users', data)
     const toast = useToast()
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-        // console.log('running', data)
+        console.log('running', data)
     }
 
     // handling logout modal
@@ -134,7 +134,10 @@ const CreateMemoPage = () => {
                         <NolGoldDivider />
 
                         <Flex justifyContent='right'>
-                            <FormSubmitButton notLink >asdf</FormSubmitButton>
+                            <FormSubmitButton notLink 
+                                bgColor='green.100'
+                                onClick={handleSubmit(onSubmit)}
+                            >Submit</FormSubmitButton>
                         </Flex>
                     </Box>
                     
