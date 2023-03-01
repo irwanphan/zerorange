@@ -2,9 +2,9 @@ import { MemoInterface } from "@interfaces//memoInterface"
 import axios from "axios"
 import { useState, useEffect } from "react"
 
-export const useFetchCatalog = (userId:any) => {
+export const useFetchMemos = (userId:any) => {
     const [ memos, setMemos ] = useState<MemoInterface[]>()
-    const [ isLoadingCatalog, setIsLoadingCatalog ] = useState<boolean>(true)
+    const [ isLoadingMemos, setIsLoadingMemos ] = useState<boolean>(true)
 
     const [ qid, setQid ] = useState()
 
@@ -21,13 +21,13 @@ export const useFetchCatalog = (userId:any) => {
             } catch (error) {
                 console.log(error)
             }
-            setIsLoadingCatalog(false)
+            setIsLoadingMemos(false)
         }
         fetchData()
     }, [])
 
     return {
         memos,
-        isLoadingCatalog
+        isLoadingMemos
     }
 }

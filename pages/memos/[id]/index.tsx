@@ -5,9 +5,8 @@ import { FiFeather } from "react-icons/fi"
 import { Button, Divider, Flex, Text } from "@chakra-ui/react"
 
 import { useRouter } from "next/router"
-import { PrismaClient } from '@prisma/client'
-import { MemoProps } from "@libs/components/BlockMemos"
-const prisma = new PrismaClient()
+import prisma from "@libs/connections/prisma"
+import { MemoInterface } from "@interfaces//memoInterface"
 
 export async function getStaticPaths() {
     // Get all the memos IDs from the database
@@ -41,7 +40,7 @@ export async function getStaticProps({ params }:any) {
     }
 }
 
-const ViewMemo = (memo:MemoProps|null = null) => {
+const ViewMemo = (memo:MemoInterface|null = null) => {
     const router = useRouter()
     // console.log(memo)
 
