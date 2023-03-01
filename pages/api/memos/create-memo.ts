@@ -6,12 +6,12 @@ const prisma = new PrismaClient();
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     if (req.method === 'POST') {
         try {
-            const { sentBy, assignedTo, title, description } = req.body;
+            const { sentBy, assignTo, title, description } = req.body;
 
             const memo = await prisma.memo.create({
                 data: {
                     sentBy,
-                    assignedTo,
+                    assignTo,
                     title,
                     description
                 },

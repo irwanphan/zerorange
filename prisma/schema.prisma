@@ -15,9 +15,9 @@ model Memo {
   image       String?
   title       String
   description String
-  price       Float       @default(0) 
+  // price       Float?      @default(0) 
   sentBy      String
-  assignedTo  String
+  assignTo    String
   ccTo        String[]
   dueAt       DateTime?
   createdAt   DateTime    @default(now())

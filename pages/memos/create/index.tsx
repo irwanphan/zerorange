@@ -1,29 +1,25 @@
 import BubbleContainer from "@elements/BubbleContainer"
 import PageSection from "@elements/Section"
-import MainLayout from "@libs/layouts/MainLayout"
-import { FiFeather, FiPenTool, FiUser } from "react-icons/fi"
-// import { Button, Flex, Input } from "@chakra-ui/react"
-import axios from "axios"
-
-import FormAddMemo from "@libs/components/PageMemos/FormAddMemo"
-import { Box, Flex, Radio, RadioGroup, useDisclosure, useToast } from "@chakra-ui/react"
 import FormInput from "@elements/FormInput"
-import { useAuth } from "@contexts/authContext"
-import { useRecoilValue } from "recoil"
-import { useEffect, useState } from "react"
-import { Resolver, set, SubmitHandler, useForm } from "react-hook-form"
-import { useRouter } from "next/router"
-import { createMemoResolver, IFormInput } from "@interfaces//createMemoInterface"
 import WarningBox from "@elements/WarningBox"
 import FormSubmitButton from "@elements/FormSubmit"
 import NolGoldDivider from "@elements/NolGoldDivider"
 import LoadingBlock from "@elements/LoadingBlock"
 import ModalPopup from "@units/ModalPopup"
+import MainLayout from "@libs/layouts/MainLayout"
+import { FiFeather } from "react-icons/fi"
+import { Box, Flex, Radio, RadioGroup, useDisclosure } from "@chakra-ui/react"
+import { Resolver, set, SubmitHandler, useForm } from "react-hook-form"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+
+import axios from "axios"
+import { useAuth } from "@contexts/authContext"
+import { createMemoResolver, IFormInput } from "@interfaces//createMemoInterface"
 
 const resolver: Resolver<IFormInput> = async (values) => {
     return createMemoResolver(values)
 }
-
 const dummyemail = [
     {   email: "dummy1@gmail.com"   },
     {   email: "dummy2@gmail.com"   },
@@ -31,10 +27,9 @@ const dummyemail = [
 ]
 
 const CreateMemoPage = () => {
-    // const addMemo = (data:any) => axios.post('/api/memos', data);
+    const addMemo = (data:any) => axios.post('/api/memos/create-memo', data)
+
     const { session, isLoadingSession } = useAuth()
-    console.log(session?.user.email)
-    // const [ userEmail, setUserEmail ] = useState<string>('')
     const [ assignEmail, setAssignEmail ] = useState<string>('')
 
     const [ isLoading, setIsLoading ] = useState(true)
@@ -58,10 +53,10 @@ const CreateMemoPage = () => {
     }, [session])
 
     const router = useRouter()
-    const createUserIfNotExist = (data:any) => axios.post('/api/users', data)
-    const toast = useToast()
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-        console.log('running', data)
+        // console.log('running: ', data)
+        router.push('/')
+        addMemo(data)
     }
 
     // handling logout modal
