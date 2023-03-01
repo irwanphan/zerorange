@@ -1,4 +1,4 @@
-import { Box, FlexProps, SimpleGrid, Text } from "@chakra-ui/react"
+import { Box, Divider, FlexProps, SimpleGrid, Text } from "@chakra-ui/react"
 import BubbleContainer from "@elements/BubbleContainer"
 import IconicTitle from "@elements/IconicTitle"
 import PageSection from "@elements/Section"
@@ -23,13 +23,13 @@ export type MemoTypes = {
 }
 
 const BlockMemos = ( {memos}:MemoTypes ) => {
-
-    // const addTask = (data:TaskProps) => axios.post('/api/memos', data);
+    // const addTask = (data:TaskProps) => axios.post('/api/memos', data)
 
     return (
         <PageSection>
             <BubbleContainer>
                 <IconicTitle icon={FiTrello} hoverColor='blue.200'>Memo List</IconicTitle>
+                <Text fontWeight={600} mb={3}>Sent</Text>
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
                     {
                         memos.map((memo) => {

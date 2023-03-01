@@ -10,8 +10,12 @@ import { PrismaClient } from '@prisma/client'
 import MainLayout from '@libs/layouts/MainLayout'
 const prisma = new PrismaClient()
 
-const Home:NextPage = ( {memos} : any ) => {
-  console.log(memos)
+const Home:NextPage = ( {user, memos} : any ) => {
+  console.log(user.email)
+  const memosSent = memos.filter((memo:any) => (memo.sentBy === user.email))
+  console.log("Memos sent: ", memosSent)
+  const memosAssigned = memos.filter((memo:any) => (memo.assignTo === user.email))
+  console.log("Memos assigned: ", memosAssigned)
   return (
     <MainLayout>
 
