@@ -6,12 +6,12 @@ import { FiFeather, FiPenTool, FiUser } from "react-icons/fi"
 import axios from "axios"
 
 import FormAddMemo from "@libs/components/PageMemos/FormAddMemo"
-import { Box, Flex, useDisclosure, useToast } from "@chakra-ui/react"
+import { Box, Flex, Radio, RadioGroup, useDisclosure, useToast } from "@chakra-ui/react"
 import FormInput from "@elements/FormInput"
 import { useAuth } from "@contexts/authContext"
 import { useRecoilValue } from "recoil"
 import { useEffect, useState } from "react"
-import { Resolver, SubmitHandler, useForm } from "react-hook-form"
+import { Resolver, set, SubmitHandler, useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import { createMemoResolver, IFormInput } from "@interfaces//createMemoInterface"
 import WarningBox from "@elements/WarningBox"
@@ -24,17 +24,19 @@ const resolver: Resolver<IFormInput> = async (values) => {
     return createMemoResolver(values)
 }
 
+const dummyemail = [
+    {   email: "dummy1@gmail.com"   },
+    {   email: "dummy2@gmail.com"   },
+    {   email: "dummy3@gmail.com"   }
+]
+
 const CreateMemoPage = () => {
     // const addMemo = (data:any) => axios.post('/api/memos', data);
-
     const { session, isLoadingSession } = useAuth()
     console.log(session?.user.email)
     const [ userEmail, setUserEmail ] = useState<string|undefined>()
+    const [ assignEmail, setAssignEmail ] = useState<string>()
 
-    // const checkCart = useRecoilValue<CartItemCheckoutInterface[]|any>(checkCartState)
-    // const setCart = useSetRecoilState(cartState)
-    // const { total, isLoadingTotal } = useCartTotal()
-    // console.log(total)
     const [ isLoading, setIsLoading ] = useState(true)
     const [ isDisabled, setDisabled ] = useState(false)
     // handling form
@@ -144,7 +146,19 @@ const CreateMemoPage = () => {
                 </BubbleContainer>
             </PageSection>
 
-            <ModalPopup modalProps={modalProps} isOpen={isModalOpen} onClose={onModalClose} canCancel />
+            <ModalPopup modalProps={modalProps} isOpen={isModalOpen} onClose={onModalClose} canCancel>
+                <RadioGroup onChange={setAssignEmail}>
+                    {
+                        dummyemail.map((item) => {
+                            return (
+                                <Radio value={item.email}>
+                                    {item.email}
+                                </Radio>
+                            )
+                        })
+                    }
+                </RadioGroup>
+            </ModalPopup>
         </MainLayout>
     )
 }
