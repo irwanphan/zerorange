@@ -41,9 +41,6 @@ const Home:NextPage = ( {user}:any, {memos}:MemosInterface ) => {
     <MainLayout>
 
       <BlockMemos memos={memos} />
-      {/* <BlockSkillset skills={skills} /> */}
-      {/* <BlockJourney works={works} /> */}
-      {/* <BlockFounder founded={founded} /> */}
       
     </MainLayout>
   )
