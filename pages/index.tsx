@@ -25,9 +25,7 @@ const Home:NextPage = ( {user}:any, {memos}:MemosInterface ) => {
   }
   useEffect(() => {
     if (user) {
-      if (memos) {
         setIsLoading(false)
-      }
     }
   }, [user, memos])
 
