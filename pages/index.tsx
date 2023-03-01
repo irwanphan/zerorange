@@ -1,22 +1,44 @@
 import type { NextPage } from 'next'
 
 import BlockMemos from '@libs/components/BlockMemos'
-import BlockJourney from '@libs/components/BlockJourney'
-import BlockFounder from '@libs/components/BlockFounder'
-import BlockSkillset from '@libs/components/BlockSkillset'
 
 // Import the generated Prisma client
 import { PrismaClient } from '@prisma/client'
 import MainLayout from '@libs/layouts/MainLayout'
 import { MemoInterface, MemosInterface } from '@interfaces//memoInterface'
+import { useEffect, useState } from 'react'
+import LoadingOverlay from '@elements/LoadingOverlay'
 const prisma = new PrismaClient()
 
 const Home:NextPage = ( {user}:any, {memos}:MemosInterface ) => {
-  console.log(user.email)
-  const memosSent = memos.filter((memo:MemoInterface) => (memo.sentBy === user.email))
-  console.log("Memos sent: ", memosSent)
-  const memosAssigned = memos.filter((memo:MemoInterface) => (memo.assignTo === user.email))
-  console.log("Memos assigned: ", memosAssigned)
+  const [ isLoading, setIsLoading ] = useState<boolean>(true)
+
+  console.log(memos)
+  if (user) {
+    console.log(user.email)
+  }
+  if (memos) {
+    const memosSent = memos.filter((memo:MemoInterface) => (memo.sentBy === user.email))
+    console.log("Memos sent: ", memosSent)
+    const memosAssigned = memos.filter((memo:MemoInterface) => (memo.assignTo === user.email))
+    console.log("Memos assigned: ", memosAssigned)
+  }
+  useEffect(() => {
+    if (user) {
+      if (memos) {
+        setIsLoading(false)
+      }
+    }
+  }, [user, memos])
+
+  if (isLoading) {
+    return (
+      <MainLayout>
+        <LoadingOverlay/>
+      </MainLayout>
+    )
+  }
+  
   return (
     <MainLayout>
 
