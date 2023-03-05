@@ -1,8 +1,14 @@
+export interface UserInterface {
+    id: string | null | undefined
+    email: string | null | undefined
+    name: string | null | undefined
+}
 export interface IFormInput {
     sentBy: string | undefined
     assignTo: string
     title: string
     description: string
+    user: UserInterface
 }
 
 export const createMemoResolver = (values:IFormInput) => {

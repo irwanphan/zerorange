@@ -9,7 +9,7 @@ import ModalPopup from "@units/ModalPopup"
 import MainLayout from "@libs/layouts/MainLayout"
 import { FiFeather } from "react-icons/fi"
 import { Box, Flex, Radio, RadioGroup, useDisclosure } from "@chakra-ui/react"
-import { Resolver, set, SubmitHandler, useForm } from "react-hook-form"
+import { Resolver, SubmitHandler, useForm } from "react-hook-form"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 
@@ -27,7 +27,8 @@ const dummyemail = [
 ]
 
 const CreateMemoPage = () => {
-    const addMemo = (data:any) => axios.post('/api/memos/create-memo', data)
+    const createUserIfNotExist = (data:any) => axios.post('/api/users', data)
+    const createNewMemo = (data:any) => axios.post('/api/memos/create-memo', data)
 
     const { session, isLoadingSession } = useAuth()
     const [ assignEmail, setAssignEmail ] = useState<string>('')
@@ -54,9 +55,24 @@ const CreateMemoPage = () => {
 
     const router = useRouter()
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+        setIsLoading(true)
         // console.log('running: ', data)
+        data.user.email = session!.user.email
+        data.user.name = session!.user.user_metadata.name
+        data.user.id = session!.user.id
+        console.log(data)
+        
+        const userData = {
+            id: session!.user.id,
+            email: session!.user.email,
+            name: session!.user.user_metadata.name,
+            image: session!.user.user_metadata.picture
+        }
+        const user = await createUserIfNotExist(userData)
+        const memo = await createNewMemo(data)
+
+        setIsLoading(false)
         router.push('/')
-        addMemo(data)
     }
 
     // handling logout modal
