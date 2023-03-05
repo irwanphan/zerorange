@@ -15,9 +15,14 @@ const BlockMemos = ( {memos}:MemosInterface ) => {
         <PageSection>
             <BubbleContainer>
                 <IconicTitle icon={FiTrello} hoverColor='blue.200'>Memo List</IconicTitle>
-                <Text fontWeight={600} mb={3}>Sent</Text>
+                <Text fontWeight={600} mb={3}>Memos Sent</Text>
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing='4'>
                     {
+                        memos.length == 0 ? 
+                            (
+                                <Box>No active memos.</Box>
+                            )
+                        :
                         memos.map((memo) => {
                             return (
                                 <StickyMemo memo={memo} key={memo.id} />
