@@ -22,13 +22,14 @@ model Memo {
   dueAt       DateTime?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-  userId      String?     @db.Uuid
-  // user        User        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userId      String      @db.Uuid
+  user        User        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   @@map("memos")
 }
 
 model User {
-  id              String      @id @default(cuid())
+  id              String      @id @default(uuid()) @db.Uuid
+  // id              String      @id @default(cuid())
   code            String      @unique
   image           String?
   email           String
@@ -43,7 +44,7 @@ model User {
   isActive        Boolean     @default(true)
   lastAccess      DateTime?
   emailVerified   DateTime?
-  // memos           Memo[]
+  memos           Memo[]
   // role            Role        @default(user)
   @@map("users")
 }
