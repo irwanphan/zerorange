@@ -4,12 +4,18 @@ import { NextApiRequest, NextApiResponse } from 'next'
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     if (req.method === 'POST') {
         try {
-            const { sentBy, assignTo, title, description } = req.body;
+            const { sentBy, assignTo, assignToEmail, title, description, userId } = req.body;
 
             const memo = await prisma.memo.create({
                 data: {
+                    user: {
+                        connect: {
+                            id: userId
+                        }
+                    },
                     sentBy,
                     assignTo,
+                    assignToEmail,
                     title,
                     description
                 },
