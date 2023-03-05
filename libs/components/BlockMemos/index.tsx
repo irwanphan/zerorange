@@ -20,7 +20,7 @@ const BlockMemos = ( {memos}:MemosInterface ) => {
                     {
                         memos.length == 0 ? 
                             (
-                                <Box>No active memos.</Box>
+                                <Box>No active memo.</Box>
                             )
                         :
                         memos.map((memo) => {
