@@ -15,7 +15,7 @@ const Home:NextPage = ( {user}:any ) => {
   const { memos, isLoadingMemos } = useFetchAllMemos()
 
   if (user) {
-    console.log(user.email)
+    console.log(user.id)
   }
   if (!isLoadingMemos) {
     const memosSent = memos?.filter((memo:MemoInterface) => (memo.sentBy === user.email))
