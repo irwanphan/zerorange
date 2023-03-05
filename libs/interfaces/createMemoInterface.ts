@@ -6,6 +6,7 @@ export interface UserInterface {
 export interface IFormInput {
     sentBy: string | undefined
     assignTo: string
+    assignToEmail: string
     title: string
     description: string
     user: UserInterface
@@ -17,12 +18,12 @@ export const createMemoResolver = (values:IFormInput) => {
                 values.title ? values :
                 values.description ? values :
                 {},
-        errors: !values.assignTo ?
+        errors: !values.assignToEmail ?
                 { address: {
                     type: 'required',
                     message: 'Assign-to is required.'
                 }}
-                : !values.assignTo ?
+                : !values.title ?
                 { title: {
                     type: 'required',
                     message: 'Title is required.'
