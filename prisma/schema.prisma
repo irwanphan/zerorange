@@ -22,8 +22,8 @@ model Memo {
   dueAt       DateTime?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-  userId      String      @db.Uuid
-  user        User        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userId      String?     @db.Uuid
+  // user        User        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   @@map("memos")
 }
 
@@ -43,7 +43,7 @@ model User {
   isActive        Boolean     @default(true)
   lastAccess      DateTime?
   emailVerified   DateTime?
-  memos           Memo[]
+  // memos           Memo[]
   // role            Role        @default(user)
   @@map("users")
 }
