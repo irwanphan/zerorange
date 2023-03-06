@@ -52,6 +52,7 @@ const CreateMemoPage = () => {
 
     useEffect(() => {
         setValue('sentBy', session?.user.email)
+        // console.log(session)
         if(session) {
             setIsLoading(false)
         }
@@ -75,7 +76,7 @@ const CreateMemoPage = () => {
             name: session!.user.user_metadata.name,
             image: session!.user.user_metadata.picture
         }
-        // const user = await createUserIfNotExist(userData)
+        const user = await createUserIfNotExist(userData)
         // const memo = await createNewMemo(data)
 
         setIsLoading(false)

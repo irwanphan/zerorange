@@ -39,14 +39,14 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
                         image
                     }
                 })
-                // console.log(user)
-                return res.status(200).json(user)
+                console.log(user)
+                // return res.status(200).json(user)
             }
-            return res.status(200).json(existingUser)
+            // return res.status(200).json(existingUser)
 
         } catch (e:any) {
             console.log(e)
-            return res.status(500).json({ message: `${e.status}` })
+            // return res.status(500).json({ message: `${e.status}` })
         }
     }
     else {
