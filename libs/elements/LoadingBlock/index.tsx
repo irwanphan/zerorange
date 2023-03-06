@@ -1,14 +1,14 @@
 import { Box, FlexProps, Grid, Skeleton } from "@chakra-ui/react"
-import BlockContainer from "@elements/BlockContainer"
+import BubbleContainer from "@elements/BubbleContainer"
 
 const LoadingBlock = ({children}: FlexProps) => {
     return (
-        <BlockContainer>
+        <BubbleContainer>
             <Skeleton h={40} mb={3} />
             <Skeleton h={5} mb={3} />
             <Skeleton h={3} mb={3} />
             {children}
-        </BlockContainer>
+        </BubbleContainer>
     )
 }
 
